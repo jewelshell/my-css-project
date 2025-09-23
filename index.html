@@ -237,7 +237,7 @@
                     const group = option.dataset.group;
                     // For single choice groups, deselect others
                     if (!multiSelectGroups.includes(group)) {
-                        document.querySelectorAll('.option-card[data-group=\"' + group + '\"]').forEach(el => {
+                        document.querySelectorAll('.option-card[data-group="' + group + '"]').forEach(el => {
                             el.classList.remove('selected');
                         });
                     }
@@ -274,11 +274,21 @@
                     }
                 });
 
-                console.log('Survey Response:', surveyResponse);
-
-                surveyForm.classList.add('hidden');
-                thankYouMessage.classList.remove('hidden');
-                window.scrollTo(0, 0); // Scroll to top
+                fetch('https://script.google.com/macros/s/AKfycbw8_CtcTqe9GHwLGHtKukM_HEygKwboHtdEqgpj-gXkwaBNZbjS-DzRFl9CcEHFboskUw/exec', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(surveyResponse)
+                })
+                .then(response => response.text())
+                .then(result => {
+                    surveyForm.classList.add('hidden');
+                    thankYouMessage.classList.remove('hidden');
+                    window.scrollTo(0, 0);
+                })
+                .catch(error => {
+                    alert("There was an error submitting the form. Please try again!");
+                    console.error(error);
+                });
             });
         });
     </script>
