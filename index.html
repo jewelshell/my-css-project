@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- This is a standard, self-contained HTML file. It has no branding or identifiers linking it to a specific creation tool. -->
     <title>Festive Fashion Trends – Durga Puja 2025</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +16,7 @@
             font-family: 'Lora', serif;
         }
         .selected {
-            outline: 4px solid #EF4444; /* Red-500 */
+            outline: 4px solid #EF4444;
             outline-offset: 2px;
             transform: scale(1.05);
             box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -38,8 +37,6 @@
 <body class="bg-amber-50 text-gray-800">
 
     <div class="container mx-auto px-4 py-8 md:py-12 max-w-4xl">
-        
-        <!-- Header Section -->
         <header class="text-center mb-10">
             <h1 class="text-4xl md:text-5xl font-bold text-red-800 mb-4">Festive Fashion Trends</h1>
             <h2 class="text-2xl md:text-3xl text-red-600">Durga Puja 2025</h2>
@@ -48,10 +45,7 @@
             </p>
         </header>
 
-        <!-- Survey Form -->
         <form id="surveyForm" class="space-y-16">
-
-            <!-- Personal Details -->
             <fieldset class="bg-white/80 p-6 rounded-2xl shadow-sm">
                 <legend class="text-2xl font-bold mb-6 text-center text-red-700 w-full">Your Details</legend>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -69,70 +63,49 @@
                     </div>
                 </div>
             </fieldset>
-
-            <!-- Question: Colours (Multiple Choice) -->
             <fieldset>
                 <legend class="text-2xl font-bold mb-6 text-center text-red-700">Which colours will dominate your wardrobe this Puja?</legend>
                 <div id="colorOptions" class="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6"></div>
             </fieldset>
-
-            <!-- Question: Style (Single Choice) -->
             <fieldset>
                 <legend class="text-2xl font-bold mb-6 text-center text-red-700">What's your go-to festive style?</legend>
                 <div id="styleOptions" class="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6"></div>
             </fieldset>
-            
-            <!-- Question: Fabrics (Multiple Choice) -->
             <fieldset>
                 <legend class="text-2xl font-bold mb-6 text-center text-red-700">Which fabrics are you leaning towards?</legend>
                 <div id="fabricOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6"></div>
             </fieldset>
-
-            <!-- Question: Accessories (Multiple Choice) -->
             <fieldset>
                 <legend class="text-2xl font-bold mb-6 text-center text-red-700">What kind of accessories will you be sporting?</legend>
                 <div id="accessoryOptions" class="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6"></div>
             </fieldset>
-
-            <!-- Question: Vibe (Single Choice) -->
             <fieldset>
                 <legend class="text-2xl font-bold mb-6 text-center text-red-700">What's the overall vibe you're aiming for?</legend>
                 <div id="vibeOptions" class="flex flex-wrap justify-center gap-4"></div>
             </fieldset>
-
-            <!-- Question: Inspiration (Multiple Choice) -->
             <fieldset>
                 <legend class="text-2xl font-bold mb-6 text-center text-red-700">Where do you get your fashion inspiration from?</legend>
                 <div id="inspirationOptions" class="grid grid-cols-2 md:grid-cols-3 gap-4"></div>
             </fieldset>
-
-            <!-- Question: Budget (Single Choice) -->
             <fieldset>
                 <legend class="text-2xl font-bold mb-6 text-center text-red-700">What is your budget for Puja shopping (per outfit)?</legend>
                 <div id="budgetOptions" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
             </fieldset>
-
-            <!-- Submission Button -->
             <div class="text-center pt-6">
                 <button type="submit" class="bg-red-600 text-white font-bold py-3 px-10 rounded-full hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-300 transition-all duration-300 transform hover:scale-105">
                     Submit Your Choices
                 </button>
             </div>
         </form>
-
-        <!-- Thank You Message -->
         <div id="thankYouMessage" class="hidden text-center mt-12 p-8 bg-white/70 rounded-2xl shadow-lg">
             <h2 class="text-3xl font-bold text-red-800 mb-4">Thank You!</h2>
             <p class="text-gray-700 text-lg">Your fashion insights have been recorded. Wishing you a very happy Durga Puja!</p>
         </div>
     </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const surveyForm = document.getElementById('surveyForm');
             const thankYouMessage = document.getElementById('thankYouMessage');
-
-            // --- DATA ---
             const surveyData = {
                 colors: [
                     { name: 'Ruby Red', hex: '#E0115F' }, { name: 'Royal Blue', hex: '#4169E1' },
@@ -159,8 +132,6 @@
                 ],
                 budgets: ['Below ₹2000', '₹2000 - ₹5000', '₹5000 - ₹10000', 'Above ₹10000']
             };
-
-            // --- RENDER FUNCTIONS ---
             function createOption(item, group) {
                 const optionDiv = document.createElement('div');
                 optionDiv.className = 'option-card cursor-pointer p-4 rounded-lg shadow-md flex flex-col items-center justify-center text-center';
@@ -168,7 +139,6 @@
                 optionDiv.dataset.group = group;
                 return optionDiv;
             }
-            
             function renderOptions(containerId, data, group, isMultiSelect, renderer) {
                 const container = document.getElementById(containerId);
                 data.forEach(item => {
@@ -176,7 +146,6 @@
                     container.appendChild(optionDiv);
                 });
             }
-
             renderOptions('colorOptions', surveyData.colors, 'color', true, (item, group) => {
                 const optionDiv = createOption(item, group);
                 optionDiv.style.backgroundColor = item.hex;
@@ -191,7 +160,6 @@
                 optionDiv.appendChild(textSpan);
                 return optionDiv;
             });
-
             const iconCardRenderer = (item, group) => {
                 const optionDiv = createOption(item, group);
                 optionDiv.classList.add('space-y-3', 'h-full');
@@ -205,18 +173,15 @@
                 optionDiv.appendChild(textSpan);
                 return optionDiv;
             };
-            
             const textCardRenderer = (item, group) => {
                 const optionDiv = createOption(item, group);
                 optionDiv.classList.add('justify-center', 'h-full');
                 optionDiv.textContent = item;
                 return optionDiv;
             };
-
             renderOptions('styleOptions', surveyData.styles, 'style', false, iconCardRenderer);
             renderOptions('fabricOptions', surveyData.fabrics, 'fabric', true, textCardRenderer);
             renderOptions('accessoryOptions', surveyData.accessories, 'accessory', true, iconCardRenderer);
-            
             renderOptions('vibeOptions', surveyData.vibes, 'vibe', false, (item, group) => {
                  const optionDiv = createOption(item, group);
                  optionDiv.classList.remove('flex-col', 'items-center', 'p-4');
@@ -224,29 +189,21 @@
                  optionDiv.textContent = item;
                  return optionDiv;
             });
-
             renderOptions('inspirationOptions', surveyData.inspirations, 'inspiration', true, iconCardRenderer);
             renderOptions('budgetOptions', surveyData.budgets, 'budget', false, textCardRenderer);
-            
-            // --- EVENT HANDLING ---
             const options = document.querySelectorAll('.option-card');
             const multiSelectGroups = ['color', 'fabric', 'accessory', 'inspiration'];
-            
             options.forEach(option => {
                 option.addEventListener('click', () => {
                     const group = option.dataset.group;
-                    // For single choice groups, deselect others
                     if (!multiSelectGroups.includes(group)) {
                         document.querySelectorAll('.option-card[data-group="' + group + '"]').forEach(el => {
                             el.classList.remove('selected');
                         });
                     }
-                    // Toggle selection for the clicked item
                     option.classList.toggle('selected');
                 });
             });
-
-            // --- FORM SUBMISSION ---
             surveyForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 const formData = new FormData(surveyForm);
@@ -262,19 +219,16 @@
                     inspirations: [],
                     budget: ''
                 };
-
                 document.querySelectorAll('.option-card.selected').forEach(el => {
                     const group = el.dataset.group;
                     const value = el.dataset.value;
-
                     if (Array.isArray(surveyResponse[group + 's'])) {
                         surveyResponse[group + 's'].push(value);
                     } else {
                         surveyResponse[group] = value;
                     }
                 });
-
-                fetch('https://script.google.com/macros/s/AKfycbw8_CtcTqe9GHwLGHtKukM_HEygKwboHtdEqgpj-gXkwaBNZbjS-DzRFl9CcEHFboskUw/exec', {
+                fetch('https://script.google.com/macros/s/AKfycbw0lTOWhuL399MzEyDwGuY9hBNAIyO5YHrbjPBbegaP/dev', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(surveyResponse)
