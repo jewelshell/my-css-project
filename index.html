@@ -17,4 +17,270 @@
             font-family: 'Lora', serif;
         }
         .selected {
-            outline: 4px solid #EF
+            outline: 4px solid #EF4444; /* Red-500 */
+            outline-offset: 2px;
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .option-card {
+            transition: all 0.2s ease-in-out;
+            background-color: white;
+        }
+        .form-input {
+            transition: all 0.2s ease-in-out;
+        }
+        .form-input:focus {
+            border-color: #EF4444;
+            box-shadow: 0 0 0 2px #FCA5A5;
+        }
+    </style>
+</head>
+<body class="bg-amber-50 text-gray-800">
+
+    <div class="container mx-auto px-4 py-8 md:py-12 max-w-4xl">
+        
+        <!-- Header Section -->
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-red-800 mb-4">Festive Fashion Trends</h1>
+            <h2 class="text-2xl md:text-3xl text-red-600">Durga Puja 2025</h2>
+            <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+                We are conducting a short survey to find out the trending colours, styles, and fashion choices for this Durga Puja. Your response will help us understand this year’s festive vibe better. It will only take 2 minutes – thank you for your time!
+            </p>
+        </header>
+
+        <!-- Survey Form -->
+        <form id="surveyForm" class="space-y-16">
+
+            <!-- Personal Details -->
+            <fieldset class="bg-white/80 p-6 rounded-2xl shadow-sm">
+                <legend class="text-2xl font-bold mb-6 text-center text-red-700 w-full">Your Details</legend>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                        <input type="text" id="name" name="name" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm" placeholder="Your full name">
+                    </div>
+                    <div>
+                        <label for="contact" class="block text-sm font-medium text-gray-700 mb-1">Contact Number</label>
+                        <input type="tel" id="contact" name="contact" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm" placeholder="Your phone number">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" id="email" name="email" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm" placeholder="your.email@example.com">
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Question: Colours (Multiple Choice) -->
+            <fieldset>
+                <legend class="text-2xl font-bold mb-6 text-center text-red-700">Which colours will dominate your wardrobe this Puja?</legend>
+                <div id="colorOptions" class="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6"></div>
+            </fieldset>
+
+            <!-- Question: Style (Single Choice) -->
+            <fieldset>
+                <legend class="text-2xl font-bold mb-6 text-center text-red-700">What's your go-to festive style?</legend>
+                <div id="styleOptions" class="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6"></div>
+            </fieldset>
+            
+            <!-- Question: Fabrics (Multiple Choice) -->
+            <fieldset>
+                <legend class="text-2xl font-bold mb-6 text-center text-red-700">Which fabrics are you leaning towards?</legend>
+                <div id="fabricOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6"></div>
+            </fieldset>
+
+            <!-- Question: Accessories (Multiple Choice) -->
+            <fieldset>
+                <legend class="text-2xl font-bold mb-6 text-center text-red-700">What kind of accessories will you be sporting?</legend>
+                <div id="accessoryOptions" class="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6"></div>
+            </fieldset>
+
+            <!-- Question: Vibe (Single Choice) -->
+            <fieldset>
+                <legend class="text-2xl font-bold mb-6 text-center text-red-700">What's the overall vibe you're aiming for?</legend>
+                <div id="vibeOptions" class="flex flex-wrap justify-center gap-4"></div>
+            </fieldset>
+
+            <!-- Question: Inspiration (Multiple Choice) -->
+            <fieldset>
+                <legend class="text-2xl font-bold mb-6 text-center text-red-700">Where do you get your fashion inspiration from?</legend>
+                <div id="inspirationOptions" class="grid grid-cols-2 md:grid-cols-3 gap-4"></div>
+            </fieldset>
+
+            <!-- Question: Budget (Single Choice) -->
+            <fieldset>
+                <legend class="text-2xl font-bold mb-6 text-center text-red-700">What is your budget for Puja shopping (per outfit)?</legend>
+                <div id="budgetOptions" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+            </fieldset>
+
+            <!-- Submission Button -->
+            <div class="text-center pt-6">
+                <button type="submit" class="bg-red-600 text-white font-bold py-3 px-10 rounded-full hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-300 transition-all duration-300 transform hover:scale-105">
+                    Submit Your Choices
+                </button>
+            </div>
+        </form>
+
+        <!-- Thank You Message -->
+        <div id="thankYouMessage" class="hidden text-center mt-12 p-8 bg-white/70 rounded-2xl shadow-lg">
+            <h2 class="text-3xl font-bold text-red-800 mb-4">Thank You!</h2>
+            <p class="text-gray-700 text-lg">Your fashion insights have been recorded. Wishing you a very happy Durga Puja!</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const surveyForm = document.getElementById('surveyForm');
+            const thankYouMessage = document.getElementById('thankYouMessage');
+
+            // --- DATA ---
+            const surveyData = {
+                colors: [
+                    { name: 'Ruby Red', hex: '#E0115F' }, { name: 'Royal Blue', hex: '#4169E1' },
+                    { name: 'Emerald Green', hex: '#50C878' }, { name: 'Marigold Yellow', hex: '#EAA221' },
+                    { name: 'Sunset Orange', hex: '#FD5E53' }, { name: 'Fuchsia Pink', hex: '#FF00FF' },
+                    { name: 'Classic Ivory', hex: '#FFFFF0' }, { name: 'Earthy Tones', hex: '#A0522D' },
+                ],
+                styles: [
+                    { name: 'Traditional Saree', icon: '👘' }, { name: 'Modern Saree', icon: '✨' },
+                    { name: 'Kurta Set', icon: '🧥' }, { name: 'Lehenga Choli', icon: '💃' },
+                    { name: 'Fusion Wear', icon: '🚀' }, { name: 'Indo-Western Gown', icon: '👗' },
+                ],
+                fabrics: ['Silk', 'Cotton', 'Linen', 'Chiffon', 'Georgette', 'Organza', 'Velvet'],
+                accessories: [
+                    { name: 'Statement Jewellery', icon: '💎' }, { name: 'Minimalist Gold/Silver', icon: '✨' },
+                    { name: 'Oxidised Silver', icon: '⛓️' }, { name: 'Terracotta Jewellery', icon: '🏺' },
+                    { name: 'Handcrafted', icon: '🎨' }, { name: 'Floral', icon: '🌸' },
+                ],
+                vibes: ['Minimalist & Chic', 'Bold & Glamorous', 'Timeless Traditional', 'Boho & Free-Spirited'],
+                inspirations: [
+                    { name: 'Social Media', icon: '📱' }, { name: 'Fashion Magazines', icon: '📖' },
+                    { name: 'Bollywood', icon: '🎬' }, { name: 'Local Boutiques', icon: '🛍️' },
+                    { name: 'Personal Style', icon: '👤' },
+                ],
+                budgets: ['Below ₹2000', '₹2000 - ₹5000', '₹5000 - ₹10000', 'Above ₹10000']
+            };
+
+            // --- RENDER FUNCTIONS ---
+            function createOption(item, group) {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option-card cursor-pointer p-4 rounded-lg shadow-md flex flex-col items-center justify-center text-center';
+                optionDiv.dataset.value = item.name || item;
+                optionDiv.dataset.group = group;
+                return optionDiv;
+            }
+            
+            function renderOptions(containerId, data, group, isMultiSelect, renderer) {
+                const container = document.getElementById(containerId);
+                data.forEach(item => {
+                    const optionDiv = renderer(item, group);
+                    container.appendChild(optionDiv);
+                });
+            }
+
+            renderOptions('colorOptions', surveyData.colors, 'color', true, (item, group) => {
+                const optionDiv = createOption(item, group);
+                optionDiv.style.backgroundColor = item.hex;
+                optionDiv.classList.add('aspect-square');
+                const textSpan = document.createElement('span');
+                textSpan.className = 'font-semibold text-center mix-blend-difference text-white text-sm md:text-base';
+                textSpan.textContent = item.name;
+                if (item.name === 'Classic Ivory' || item.name === 'Marigold Yellow') {
+                    textSpan.classList.remove('text-white', 'mix-blend-difference');
+                    textSpan.classList.add('text-gray-800');
+                }
+                optionDiv.appendChild(textSpan);
+                return optionDiv;
+            });
+
+            const iconCardRenderer = (item, group) => {
+                const optionDiv = createOption(item, group);
+                optionDiv.classList.add('space-y-3', 'h-full');
+                const iconSpan = document.createElement('span');
+                iconSpan.className = 'text-4xl md:text-5xl';
+                iconSpan.textContent = item.icon;
+                const textSpan = document.createElement('span');
+                textSpan.className = 'font-semibold text-gray-700 text-sm md:text-base';
+                textSpan.textContent = item.name;
+                optionDiv.appendChild(iconSpan);
+                optionDiv.appendChild(textSpan);
+                return optionDiv;
+            };
+            
+            const textCardRenderer = (item, group) => {
+                const optionDiv = createOption(item, group);
+                optionDiv.classList.add('justify-center', 'h-full');
+                optionDiv.textContent = item;
+                return optionDiv;
+            };
+
+            renderOptions('styleOptions', surveyData.styles, 'style', false, iconCardRenderer);
+            renderOptions('fabricOptions', surveyData.fabrics, 'fabric', true, textCardRenderer);
+            renderOptions('accessoryOptions', surveyData.accessories, 'accessory', true, iconCardRenderer);
+            
+            renderOptions('vibeOptions', surveyData.vibes, 'vibe', false, (item, group) => {
+                 const optionDiv = createOption(item, group);
+                 optionDiv.classList.remove('flex-col', 'items-center', 'p-4');
+                 optionDiv.classList.add('p-3', 'px-5', 'rounded-full');
+                 optionDiv.textContent = item;
+                 return optionDiv;
+            });
+
+            renderOptions('inspirationOptions', surveyData.inspirations, 'inspiration', true, iconCardRenderer);
+            renderOptions('budgetOptions', surveyData.budgets, 'budget', false, textCardRenderer);
+            
+            // --- EVENT HANDLING ---
+            const options = document.querySelectorAll('.option-card');
+            const multiSelectGroups = ['color', 'fabric', 'accessory', 'inspiration'];
+            
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    const group = option.dataset.group;
+                    // For single choice groups, deselect others
+                    if (!multiSelectGroups.includes(group)) {
+                        document.querySelectorAll('.option-card[data-group=\"' + group + '\"]').forEach(el => {
+                            el.classList.remove('selected');
+                        });
+                    }
+                    // Toggle selection for the clicked item
+                    option.classList.toggle('selected');
+                });
+            });
+
+            // --- FORM SUBMISSION ---
+            surveyForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formData = new FormData(surveyForm);
+                const surveyResponse = {
+                    name: formData.get('name'),
+                    contact: formData.get('contact'),
+                    email: formData.get('email'),
+                    colors: [],
+                    style: '',
+                    fabrics: [],
+                    accessories: [],
+                    vibe: '',
+                    inspirations: [],
+                    budget: ''
+                };
+
+                document.querySelectorAll('.option-card.selected').forEach(el => {
+                    const group = el.dataset.group;
+                    const value = el.dataset.value;
+
+                    if (Array.isArray(surveyResponse[group + 's'])) {
+                        surveyResponse[group + 's'].push(value);
+                    } else {
+                        surveyResponse[group] = value;
+                    }
+                });
+
+                console.log('Survey Response:', surveyResponse);
+
+                surveyForm.classList.add('hidden');
+                thankYouMessage.classList.remove('hidden');
+                window.scrollTo(0, 0); // Scroll to top
+            });
+        });
+    </script>
+</body>
+</html>
