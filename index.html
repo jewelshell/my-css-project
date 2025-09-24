@@ -21,16 +21,24 @@
         transition: all 0.2s ease-in-out;
         background-color: white;
         cursor: pointer;
-        min-height: 80px;
+        min-height: 100px; /* taller for mobile */
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         border-radius: 0.75rem;
-        padding: 0.75rem;
+        padding: 1rem;
+        text-align: center;
     }
     .option-card span {
         word-break: break-word;
+        font-size: 0.875rem;
+    }
+    @media (min-width: 640px) {
+        .option-card span { font-size: 1rem; }
+    }
+    @media (min-width: 768px) {
+        .option-card span { font-size: 1.05rem; }
     }
     .form-input {
         transition: all 0.2s ease-in-out;
@@ -58,46 +66,65 @@ We are conducting a short survey to find out the trending colours, styles, and f
 <fieldset class="bg-white/80 p-6 rounded-2xl shadow-sm">
 <legend class="text-2xl font-bold mb-6 text-center text-red-700 w-full">Your Details</legend>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
 <div>
 <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
 <input type="text" id="name" name="name" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm" placeholder="Your full name">
 </div>
+
 <div>
 <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
 <input type="email" id="email" name="email" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm" placeholder="your.email@example.com">
 </div>
+
 <div>
-<label for="age" class="block text-sm font-medium text-gray-700 mb-1">Age</label>
-<input type="number" id="age" name="age" min="10" max="120" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm">
+<label for="dob" class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
+<input type="date" id="dob" name="dob" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm">
+<p id="ageDisplay" class="mt-1 text-gray-600 text-sm"></p>
+<input type="hidden" name="age" id="hiddenAge">
 </div>
+
 <div>
 <label for="gender" class="block text-sm font-medium text-gray-700 mb-1">Gender</label>
 <select id="gender" name="gender" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm">
-<option value="">--Select--</option>
-<option value="Female">Female</option>
-<option value="Male">Male</option>
-<option value="Non-binary">Non-binary</option>
-<option value="Prefer not to say">Prefer not to say</option>
+<option value="" disabled selected>Select your gender</option>
+<option>Female</option>
+<option>Male</option>
+<option>Non-binary</option>
+<option>Prefer not to say</option>
 </select>
 </div>
+
 <div>
 <label for="occupation" class="block text-sm font-medium text-gray-700 mb-1">Occupation</label>
-<input type="text" id="occupation" name="occupation" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm">
-</div>
-<div>
-<label for="location" class="block text-sm font-medium text-gray-700 mb-1">Preferred Fashion Location</label>
-<select id="location" name="location" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm">
-<option value="">--Select--</option>
-<option value="Online stores">Online stores</option>
-<option value="Local boutiques">Local boutiques</option>
-<option value="Shopping malls">Shopping malls</option>
-<option value="Street markets">Street markets</option>
+<select id="occupation" name="occupation" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm">
+<option value="" disabled selected>Select your occupation</option>
+<option>Student</option>
+<option>Working Professional</option>
+<option>Designer</option>
+<option>Engineer</option>
+<option>Teacher</option>
+<option>Entrepreneur</option>
+<option>Homemaker</option>
+<option>Other</option>
 </select>
 </div>
+
+<div>
+<label for="location" class="block text-sm font-medium text-gray-700 mb-1">Location Preference</label>
+<select id="location" name="location" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm">
+<option value="" disabled selected>Select your location preference</option>
+<option>Kolkata</option>
+<option>Other Metro City</option>
+<option>Tier 2 City</option>
+<option>International</option>
+</select>
+</div>
+
 </div>
 </fieldset>
 
-<!-- Existing Questions (unchanged) -->
+<!-- Survey Questions -->
 <fieldset>
 <legend class="text-2xl font-bold mb-6 text-center text-red-700">Which colours will dominate your wardrobe this Puja?</legend>
 <div id="colorOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
@@ -140,12 +167,6 @@ We are conducting a short survey to find out the trending colours, styles, and f
 <input type="hidden" name="budget" id="hiddenBudget">
 </fieldset>
 
-<!-- Feedback -->
-<fieldset class="bg-white/80 p-6 rounded-2xl shadow-sm">
-<legend class="text-2xl font-bold mb-6 text-center text-red-700 w-full">Your Feedback</legend>
-<textarea id="feedback" name="message" rows="5" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm" placeholder="Share your thoughts here..."></textarea>
-</fieldset>
-
 <div class="text-center pt-6">
 <button type="submit" class="bg-red-600 text-white font-bold py-3 px-10 rounded-full hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-300 transition-all duration-300 transform hover:scale-105">
 Submit Your Choices
@@ -164,6 +185,24 @@ Submit Your Choices
 document.addEventListener('DOMContentLoaded', () => {
     const surveyForm = document.getElementById('surveyForm');
     const thankYouMessage = document.getElementById('thankYouMessage');
+
+    // Age calculation
+    const dobInput = document.getElementById('dob');
+    const ageDisplay = document.getElementById('ageDisplay');
+    dobInput.addEventListener('change', () => {
+        const dob = new Date(dobInput.value);
+        if (!dob || isNaN(dob)) {
+            ageDisplay.textContent = '';
+            document.getElementById('hiddenAge').value = '';
+            return;
+        }
+        const today = new Date();
+        let age = today.getFullYear() - dob.getFullYear();
+        const m = today.getMonth() - dob.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) age--;
+        ageDisplay.textContent = `Your age: ${age} years`;
+        document.getElementById('hiddenAge').value = age;
+    });
 
     const surveyData = {
         colors:[{name:'Ruby Red',hex:'#E0115F'},{name:'Royal Blue',hex:'#4169E1'},{name:'Emerald Green',hex:'#50C878'},{name:'Marigold Yellow',hex:'#EAA221'},{name:'Sunset Orange',hex:'#FD5E53'},{name:'Fuchsia Pink',hex:'#FF00FF'},{name:'Classic Ivory',hex:'#FFFFF0'},{name:'Earthy Tones',hex:'#A0522D'}],
@@ -202,15 +241,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const iconRenderer=(item,group)=>{
         const div=createOption(item,group);
-        div.classList.add('space-y-2','h-full');
-        const icon=document.createElement('span'); icon.textContent=item.icon; icon.className='text-3xl sm:text-4xl md:text-5xl';
-        const text=document.createElement('span'); text.textContent=item.name; text.className='font-semibold text-gray-700 text-sm sm:text-base';
+        div.classList.add('space-y-2','h-full','p-4','rounded-xl');
+        const icon=document.createElement('span'); icon.textContent=item.icon; icon.className='text-4xl sm:text-5xl md:text-6xl';
+        const text=document.createElement('span'); text.textContent=item.name; text.className='font-semibold text-gray-700 text-sm sm:text-base md:text-lg';
         div.appendChild(icon); div.appendChild(text);
         return div;
     };
 
     const textRenderer=(item,group)=>{
-        const div=createOption(item,group); div.textContent=item; return div;
+        const div=createOption(item,group); div.classList.add('p-4','rounded-xl','text-center'); div.textContent=item; return div;
     };
 
     renderOptions('styleOptions',surveyData.styles,'style',iconRenderer);
