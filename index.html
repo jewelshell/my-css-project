@@ -1,64 +1,157 @@
-<!-- Personal Details -->
-<fieldset class="bg-white/80 p-6 rounded-2xl shadow-sm">
-  <legend class="text-2xl font-bold mb-6 text-center text-red-700 w-full">Your Details</legend>
-  
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-    <!-- Name -->
-    <div>
-      <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-      <input type="text" id="name" name="name" required 
-        class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm" 
-        placeholder="Your full name">
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Festive Fashion Trends Survey</title>
+  <link rel="stylesheet" href="festivefashion.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-gradient-to-br from-pink-100 via-red-50 to-yellow-50 min-h-screen flex flex-col items-center justify-center p-6">
 
-    <!-- Email -->
-    <div>
-      <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-      <input type="email" id="email" name="email" required 
-        class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm" 
-        placeholder="your.email@example.com">
-    </div>
+  <div class="max-w-3xl w-full bg-white/80 backdrop-blur-lg p-8 rounded-2xl shadow-xl border border-red-100">
+    <!-- Header -->
+    <header class="mb-8 text-center">
+      <h1 class="text-4xl font-extrabold text-red-700 mb-2">Festive Fashion Trends</h1>
+      <h2 class="text-xl text-gray-600">Durga Puja 2025</h2>
+      <p class="mt-4 text-gray-700">
+        We are conducting a short survey to find out the trending colours, styles, and fashion choices for this Durga Puja. 
+        Your response will help us understand this year’s festive vibe better. 
+        It will only take 2 minutes – thank you for your time!
+      </p>
+    </header>
 
-    <!-- Age -->
-    <div>
-      <label for="age" class="block text-sm font-medium text-gray-700 mb-1">Age</label>
-      <input type="number" id="age" name="age" min="12" max="100" required
-        class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm" 
-        placeholder="Your age">
-    </div>
+    <!-- Survey Form -->
+    <form id="surveyForm" action="https://formspree.io/f/mnnqraeq" method="POST" class="space-y-8">
+      
+      <!-- Personal Details -->
+      <fieldset class="bg-white/80 p-6 rounded-2xl shadow-sm">
+        <legend class="text-2xl font-bold mb-6 text-center text-red-700 w-full">Your Details</legend>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Name -->
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+            <input type="text" id="name" name="name" required 
+              class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm" 
+              placeholder="Your full name">
+          </div>
 
-    <!-- Gender -->
-    <div>
-      <label for="gender" class="block text-sm font-medium text-gray-700 mb-1">Gender</label>
-      <select id="gender" name="gender" required
-        class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm">
-        <option value="" disabled selected>Select your gender</option>
-        <option>Female</option>
-        <option>Male</option>
-        <option>Non-binary</option>
-        <option>Prefer not to say</option>
-      </select>
-    </div>
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <input type="email" id="email" name="email" required 
+              class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm" 
+              placeholder="your.email@example.com">
+          </div>
 
-    <!-- Occupation -->
-    <div>
-      <label for="occupation" class="block text-sm font-medium text-gray-700 mb-1">Occupation</label>
-      <input type="text" id="occupation" name="occupation"
-        class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm" 
-        placeholder="e.g., Student, Designer, Engineer">
-    </div>
+          <!-- Age -->
+          <div>
+            <label for="age" class="block text-sm font-medium text-gray-700 mb-1">Age</label>
+            <input type="number" id="age" name="age" min="12" max="100" required
+              class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm" 
+              placeholder="Your age">
+          </div>
 
-    <!-- Location Preference -->
-    <div>
-      <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Location Preference</label>
-      <select id="location" name="location" required
-        class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm">
-        <option value="" disabled selected>Select your location preference</option>
-        <option>Kolkata</option>
-        <option>Other Metro City</option>
-        <option>Tier 2 City</option>
-        <option>International</option>
-      </select>
+          <!-- Gender -->
+          <div>
+            <label for="gender" class="block text-sm font-medium text-gray-700 mb-1">Gender</label>
+            <select id="gender" name="gender" required
+              class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm">
+              <option value="" disabled selected>Select your gender</option>
+              <option>Female</option>
+              <option>Male</option>
+              <option>Non-binary</option>
+              <option>Prefer not to say</option>
+            </select>
+          </div>
+
+          <!-- Occupation -->
+          <div>
+            <label for="occupation" class="block text-sm font-medium text-gray-700 mb-1">Occupation</label>
+            <input type="text" id="occupation" name="occupation"
+              class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm" 
+              placeholder="e.g., Student, Designer, Engineer">
+          </div>
+
+          <!-- Location Preference -->
+          <div>
+            <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Location Preference</label>
+            <select id="location" name="location" required
+              class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm">
+              <option value="" disabled selected>Select your location preference</option>
+              <option>Kolkata</option>
+              <option>Other Metro City</option>
+              <option>Tier 2 City</option>
+              <option>International</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Fashion Choices -->
+      <fieldset class="bg-white/80 p-6 rounded-2xl shadow-sm">
+        <legend class="text-2xl font-bold mb-6 text-center text-red-700 w-full">Fashion Choices</legend>
+        <div class="space-y-6">
+          <div>
+            <label for="colours" class="block text-sm font-medium text-gray-700 mb-1">Favourite Colours this Puja</label>
+            <input type="text" id="colours" name="colours" required
+              class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm"
+              placeholder="e.g., Red, Yellow, White">
+          </div>
+
+          <div>
+            <label for="styles" class="block text-sm font-medium text-gray-700 mb-1">Preferred Style</label>
+            <select id="styles" name="styles" required
+              class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm">
+              <option value="" disabled selected>Select your style</option>
+              <option>Traditional</option>
+              <option>Fusion</option>
+              <option>Western</option>
+              <option>Indo-Western</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="outfit" class="block text-sm font-medium text-gray-700 mb-1">Go-to Outfit</label>
+            <input type="text" id="outfit" name="outfit" required
+              class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm"
+              placeholder="e.g., Saree, Kurta, Dress">
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button type="submit"
+          class="px-6 py-3 bg-red-600 text-white font-semibold rounded-xl shadow-md hover:bg-red-700 transition">
+          Submit Response
+        </button>
+      </div>
+    </form>
+
+    <!-- Thank You Message -->
+    <div id="thankYouMessage" class="hidden mt-6 text-center p-6 bg-green-100 text-green-800 rounded-xl">
+      <h3 class="text-xl font-bold">Thank you for your response! 🎉</h3>
+      <p>We’ve recorded your festive fashion choices successfully.</p>
     </div>
   </div>
-</fieldset>
+
+  <script>
+    const form = document.getElementById('surveyForm');
+    const thankYouMessage = document.getElementById('thankYouMessage');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        form.classList.add('hidden');
+        thankYouMessage.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
