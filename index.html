@@ -3,138 +3,243 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>✨ Festive Fashion Trends – Durga Puja 2025 🪔</title>
+<title>Festive Fashion Trends – Durga Puja 2025</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 <style>
-  body { font-family: 'Poppins', sans-serif; background: linear-gradient(to bottom, #fff8f0, #fff); }
-  .option-card { transition: all 0.2s ease-in-out; cursor: pointer; position: relative; padding: 0.75rem; border-radius: 0.75rem; min-height: 80px; display:flex; align-items:center; justify-content:center; text-align:center; background:white; box-shadow: 0 1px 4px rgba(0,0,0,0.1);}
-  .option-card:hover { transform: scale(1.05); background-color: #fef3c7; }
-  .option-card.selected { border: 3px solid #f87171; box-shadow: 0px 4px 15px rgba(249, 115, 22, 0.5); background: linear-gradient(135deg, #fff1f0, #ffefc1);}
-  .option-card .checkmark { position:absolute; top:0.25rem; right:0.5rem; font-size:1.2rem; display:none; }
-  .option-card.selected .checkmark { display:block; }
-  fieldset { margin-bottom: 2rem; padding: 1rem; border-radius: 1rem; background: #ffffffcc; backdrop-filter: blur(8px); }
-  legend { font-weight: 700; font-size: 1.1rem; color: #cc3300; margin-bottom: 0.75rem; display:flex; align-items:center; gap:0.5rem; }
+    body { font-family: 'Inter', sans-serif; background: linear-gradient(to bottom, #fff8f0, #fff); }
+    h1, h2, h3, legend { font-family: 'Lora', serif; }
+    .selected {
+        outline: 4px solid #EF4444;
+        outline-offset: 2px;
+        transform: scale(1.05);
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        background: linear-gradient(135deg, #fff1f0, #ffe7b2);
+    }
+    .option-card {
+        transition: all 0.2s ease-in-out;
+        background-color: white;
+        cursor: pointer;
+        min-height: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.75rem;
+        padding: 0.75rem;
+        position: relative;
+        text-align: center;
+    }
+    .option-card span {
+        word-break: break-word;
+    }
+    .form-input {
+        transition: all 0.2s ease-in-out;
+    }
+    .form-input:focus {
+        border-color: #EF4444;
+        box-shadow: 0 0 0 2px #FCA5A5;
+    }
+    .checkmark {
+        position: absolute;
+        top: 5px;
+        right: 8px;
+        font-size: 1.2rem;
+        display: none;
+    }
+    .option-card.selected .checkmark {
+        display: block;
+    }
 </style>
 </head>
-<body class="text-gray-800">
-
-<div class="container mx-auto p-4 sm:p-6 lg:p-10 max-w-4xl bg-white shadow-2xl rounded-2xl">
-
-<!-- Progress Bar -->
-<div class="w-full bg-gray-200 rounded-full h-3 mb-6 sticky top-0 z-50">
-  <div id="progressBar" class="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 h-3 rounded-full transition-all duration-500 ease-in-out" style="width: 0%;"></div>
-</div>
-<p id="progressText" class="text-center text-sm font-medium text-gray-700 mb-6">Step 1 of 4</p>
+<body class="bg-amber-50 text-gray-800">
+<div class="container mx-auto px-4 py-8 md:py-12 max-w-4xl">
 
 <header class="text-center mb-10">
-  <h1 class="text-3xl sm:text-4xl font-extrabold text-red-600 drop-shadow-md">
-    ✨🎉 Festive Fashion Trends 2025 🪔👗
-  </h1>
-  <p class="mt-3 text-lg text-gray-700">💃 Let’s find out the trending colours, styles & vibes this Durga Puja 🎊</p>
+<h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-red-800 mb-4">✨ Festive Fashion Trends 🎉</h1>
+<h2 class="text-xl sm:text-2xl md:text-3xl text-red-600">Durga Puja 2025 🪔</h2>
+<p class="mt-4 text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
+We are conducting a short survey to find out the trending colours, styles, and fashion choices for this Durga Puja. Your response will help us understand this year’s festive vibe better. It will only take 2 minutes – thank you for your time!
+</p>
 </header>
 
-<form class="space-y-10">
+<form id="surveyForm" action="https://formspree.io/f/xyznynyb" method="POST" class="space-y-12">
 
-<!-- Example Section: Age Group -->
-<fieldset>
-<legend>👤 Section 1: Your Details</legend>
-<div class="mb-4">
-<label class="block font-semibold mb-2">🎂 Age Group</label>
-<div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-  <div class="option-card" data-group="age">Below 15 <span class="checkmark">✔️</span></div>
-  <div class="option-card" data-group="age">15–20 <span class="checkmark">✔️</span></div>
-  <div class="option-card" data-group="age">21–25 <span class="checkmark">✔️</span></div>
-  <div class="option-card" data-group="age">26–30 <span class="checkmark">✔️</span></div>
-  <div class="option-card" data-group="age">31–40 <span class="checkmark">✔️</span></div>
-  <div class="option-card" data-group="age">41–50 <span class="checkmark">✔️</span></div>
-  <div class="option-card" data-group="age">51–60 <span class="checkmark">✔️</span></div>
-  <div class="option-card" data-group="age">Above 60 <span class="checkmark">✔️</span></div>
+<!-- Personal Details -->
+<fieldset class="bg-white/80 p-6 rounded-2xl shadow-sm">
+<legend class="text-2xl font-bold mb-6 text-center text-red-700 w-full">👤 Your Details</legend>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div>
+<label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name ✍️</label>
+<input type="text" id="name" name="name" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm" placeholder="Your full name">
 </div>
+<div>
+<label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email 📧</label>
+<input type="email" id="email" name="email" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm" placeholder="your.email@example.com">
+</div>
+<div>
+<label for="ageGroup" class="block text-sm font-medium text-gray-700 mb-1">Age Group 🎂</label>
+<div id="ageGroup" class="grid grid-cols-2 gap-2">
+<div class="option-card" data-group="age">Below 15 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="age">15–20 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="age">21–25 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="age">26–30 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="age">31–40 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="age">41–50 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="age">51–60 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="age">Above 60 <span class="checkmark">✔️</span></div>
+</div>
+<input type="hidden" name="age" id="hiddenAge">
 </div>
 
-<div class="mb-4">
-<label class="block font-semibold mb-2">🚻 Gender</label>
-<div class="flex flex-wrap gap-3">
-  <div class="option-card" data-group="gender">Male ♂️ <span class="checkmark">✔️</span></div>
-  <div class="option-card" data-group="gender">Female ♀️ <span class="checkmark">✔️</span></div>
-  <div class="option-card" data-group="gender">Other 🌈 <span class="checkmark">✔️</span></div>
+<div>
+<label for="gender" class="block text-sm font-medium text-gray-700 mb-1">Gender 🚻</label>
+<div id="gender" class="grid grid-cols-3 gap-2">
+<div class="option-card" data-group="gender">Male ♂️ <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="gender">Female ♀️ <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="gender">Other 🌈 <span class="checkmark">✔️</span></div>
 </div>
+<input type="hidden" name="gender" id="hiddenGender">
 </div>
 
-<div class="mb-4">
-<label class="block font-semibold mb-2">💼 Occupation</label>
-<select class="w-full border rounded-lg p-2 bg-pink-50">
-  <option>Student 🎓</option>
-  <option>Working professional 💻</option>
-  <option>Homemaker 🏡</option>
-  <option>Business owner 🏢</option>
-  <option>Retired 🌅</option>
-  <option>Others ✍️</option>
+<div>
+<label for="occupation" class="block text-sm font-medium text-gray-700 mb-1">Occupation 💼</label>
+<select id="occupation" name="occupation" class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-yellow-50 focus:outline-none sm:text-sm">
+<option>Student 🎓</option>
+<option>Working professional 💻</option>
+<option>Homemaker 🏡</option>
+<option>Business owner 🏢</option>
+<option>Retired 🌅</option>
+<option>Others ✍️</option>
 </select>
 </div>
 
 <div>
-<label class="block font-semibold mb-2">📍 Location (City/Area)</label>
-<input type="text" class="w-full border rounded-lg p-2 bg-yellow-50" placeholder="Enter your city 🏙️">
+<label for="location" class="block text-sm font-medium text-gray-700 mb-1">Location 📍</label>
+<input type="text" id="location" name="location" class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-green-50 focus:outline-none sm:text-sm" placeholder="City/Area 🏙️">
+</div>
+
 </div>
 </fieldset>
 
-<!-- Example Section 2 -->
+<!-- Survey Questions -->
 <fieldset>
-<legend>🎨 Section 2: Style & Colour Preferences</legend>
-<label class="block font-semibold mb-2">🌈 Which colour represents this festive season?</label>
-<div class="flex flex-wrap gap-3">
-  <div class="option-card" data-group="colour">❤️ Red <span class="checkmark">✔️</span></div>
-  <div class="option-card" data-group="colour">💛 Yellow <span class="checkmark">✔️</span></div>
-  <div class="option-card" data-group="colour">💚 Green <span class="checkmark">✔️</span></div>
-  <div class="option-card" data-group="colour">💙 Blue <span class="checkmark">✔️</span></div>
-  <div class="option-card" data-group="colour">💜 Purple <span class="checkmark">✔️</span></div>
-</div>
+<legend class="text-2xl font-bold mb-6 text-center text-red-700">🎨 Colours & Styles</legend>
+<div id="colorOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
+<input type="hidden" name="colors" id="hiddenColors">
+<div id="styleOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4 mt-4"></div>
+<input type="hidden" name="style" id="hiddenStyle">
+<div id="fabricOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-4"></div>
+<input type="hidden" name="fabrics" id="hiddenFabrics">
+<div id="accessoryOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-4"></div>
+<input type="hidden" name="accessories" id="hiddenAccessories">
+<div id="vibeOptions" class="flex flex-wrap justify-center gap-4 mt-4"></div>
+<input type="hidden" name="vibe" id="hiddenVibe">
+<div id="inspirationOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-4"></div>
+<input type="hidden" name="inspirations" id="hiddenInspirations">
+<div id="budgetOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-4"></div>
+<input type="hidden" name="budget" id="hiddenBudget">
 </fieldset>
 
-<!-- Submit Button -->
 <div class="text-center pt-6">
-<button type="submit" class="px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold shadow-lg hover:scale-105 transform transition">
-  🚀 Submit Response
+<button type="submit" class="bg-red-600 text-white font-bold py-3 px-10 rounded-full hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-300 transition-all duration-300 transform hover:scale-105">
+Submit Your Choices 🚀
 </button>
 </div>
 
 </form>
+
+<div id="thankYouMessage" class="hidden text-center mt-12 p-8 bg-white/70 rounded-2xl shadow-lg">
+<h2 class="text-3xl font-bold text-red-800 mb-4">Thank You! 🎉</h2>
+<p class="text-gray-700 text-lg">Your fashion insights have been recorded. Wishing you a very happy Durga Puja 🪔!</p>
+</div>
+
 </div>
 
 <script>
-// Option card click handler
-document.querySelectorAll(".option-card").forEach(card => {
-  card.addEventListener("click", () => {
-    const group = card.dataset.group;
-    // Single choice: deselect others in group
-    document.querySelectorAll(`.option-card[data-group="${group}"]`).forEach(c => {
-      c.classList.remove("selected");
-    });
-    card.classList.add("selected");
-  });
-});
+document.addEventListener('DOMContentLoaded', () => {
+    const surveyForm = document.getElementById('surveyForm');
+    const thankYouMessage = document.getElementById('thankYouMessage');
 
-// Scroll progress bar
-document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll("fieldset");
-  const progressBar = document.getElementById("progressBar");
-  const progressText = document.getElementById("progressText");
-  const totalSteps = sections.length;
-  function updateProgress() {
-    let scrollPosition = window.scrollY + window.innerHeight / 2;
-    let currentStep = 1;
-    sections.forEach((section, index) => {
-      if (scrollPosition >= section.offsetTop) currentStep = index + 1;
+    const surveyData = {
+        colors:[{name:'Ruby Red ❤️',hex:'#E0115F'},{name:'Royal Blue 💙',hex:'#4169E1'},{name:'Emerald Green 💚',hex:'#50C878'},{name:'Marigold Yellow 💛',hex:'#EAA221'},{name:'Sunset Orange 🧡',hex:'#FD5E53'},{name:'Fuchsia Pink 💖',hex:'#FF00FF'},{name:'Classic Ivory 🤍',hex:'#FFFFF0'},{name:'Earthy Tones 🌿',hex:'#A0522D'}],
+        styles:[{name:'Traditional Saree 👘',icon:'👘'},{name:'Modern Saree ✨',icon:'✨'},{name:'Kurta Set 🧥',icon:'🧥'},{name:'Lehenga Choli 💃',icon:'💃'},{name:'Fusion Wear 🚀',icon:'🚀'},{name:'Indo-Western Gown 👗',icon:'👗'}],
+        fabrics:['Silk','Cotton','Linen','Chiffon','Georgette','Organza','Velvet'],
+        accessories:[{name:'Statement Jewellery 💎',icon:'💎'},{name:'Minimalist Gold/Silver ✨',icon:'✨'},{name:'Oxidised Silver ⛓️',icon:'⛓️'},{name:'Terracotta Jewellery 🏺',icon:'🏺'},{name:'Handcrafted 🎨',icon:'🎨'},{name:'Floral 🌸',icon:'🌸'}],
+        vibes:['Minimalist & Chic','Bold & Glamorous','Timeless Traditional','Boho & Free-Spirited'],
+        inspirations:[{name:'Social Media 📱',icon:'📱'},{name:'Fashion Magazines 📖',icon:'📖'},{name:'Bollywood 🎬',icon:'🎬'},{name:'Local Boutiques 🛍️',icon:'🛍️'},{name:'Personal Style 👤',icon:'👤'}],
+        budgets:['Below ₹2000','₹2000 - ₹5000','₹5000 - ₹10000','Above ₹10000']
+    };
+
+    function createOption(item, group){
+        const div=document.createElement('div');
+        div.className='option-card';
+        div.dataset.value=item.name||item;
+        div.dataset.group=group;
+        const check=document.createElement('span'); check.className='checkmark'; check.textContent='✔️';
+        div.appendChild(check);
+        return div;
+    }
+
+    function renderOptions(containerId,data,group,renderer){
+        const container=document.getElementById(containerId);
+        data.forEach(item=>container.appendChild(renderer(item,group)));
+    }
+
+    renderOptions('colorOptions',surveyData.colors,'color',(item,group)=>{
+        const div=createOption(item,group);
+        div.style.backgroundColor=item.hex;
+        div.classList.add('aspect-square');
+        const span=document.createElement('span');
+        span.className='font-semibold text-center mix-blend-difference text-white text-sm sm:text-base';
+        span.textContent=item.name;
+        if(item.name.includes('Ivory')||item.name.includes('Yellow')){span.classList.remove('text-white','mix-blend-difference');span.classList.add('text-gray-800');}
+        div.appendChild(span);
+        return div;
     });
-    progressBar.style.width = (currentStep / totalSteps * 100) + "%";
-    progressText.textContent = `Step ${currentStep} of ${totalSteps}`;
-  }
-  updateProgress();
-  window.addEventListener("scroll", updateProgress);
+
+    const iconRenderer=(item,group)=>{
+        const div=createOption(item,group);
+        div.classList.add('space-y-2','h-full');
+        const icon=document.createElement('span'); icon.textContent=item.icon; icon.className='text-3xl sm:text-4xl md:text-5xl';
+        const text=document.createElement('span'); text.textContent=item.name; text.className='font-semibold text-gray-700 text-sm sm:text-base';
+        div.appendChild(icon); div.appendChild(text);
+        return div;
+    };
+
+    const textRenderer=(item,group)=>{
+        const div=createOption(item,group); div.textContent=item; return div;
+    };
+
+    renderOptions('styleOptions',surveyData.styles,'style',iconRenderer);
+    renderOptions('fabricOptions',surveyData.fabrics,'fabric',textRenderer);
+    renderOptions('accessoryOptions',surveyData.accessories,'accessory',iconRenderer);
+    renderOptions('vibeOptions',surveyData.vibes,'vibe',textRenderer);
+    renderOptions('inspirationOptions',surveyData.inspirations,'inspiration',iconRenderer);
+    renderOptions('budgetOptions',surveyData.budgets,'budget',textRenderer);
+
+    const multiGroups=['color','fabric','accessory','inspiration'];
+    document.querySelectorAll('.option-card').forEach(opt=>opt.addEventListener('click',()=>{
+        const group=opt.dataset.group;
+        if(!multiGroups.includes(group)){document.querySelectorAll(`.option-card[data-group="${group}"]`).forEach(el=>el.classList.remove('selected'));}
+        opt.classList.toggle('selected');
+    }));
+
+    surveyForm.addEventListener('submit',()=>{
+        document.getElementById('hiddenColors').value=Array.from(document.querySelectorAll('.option-card.selected[data-group="color"]')).map(e=>e.dataset.value).join(', ');
+        document.getElementById('hiddenStyle').value=document.querySelector('.option-card.selected[data-group="style"]')?.dataset.value||'';
+        document.getElementById('hiddenFabrics').value=Array.from(document.querySelectorAll('.option-card.selected[data-group="fabric"]')).map(e=>e.dataset.value).join(', ');
+        document.getElementById('hiddenAccessories').value=Array.from(document.querySelectorAll('.option-card.selected[data-group="accessory"]')).map(e=>e.dataset.value).join(', ');
+        document.getElementById('hiddenVibe').value=document.querySelector('.option-card.selected[data-group="vibe"]')?.dataset.value||'';
+        document.getElementById('hiddenInspirations').value=Array.from(document.querySelectorAll('.option-card.selected[data-group="inspiration"]')).map(e=>e.dataset.value).join(', ');
+        document.getElementById('hiddenBudget').value=document.querySelector('.option-card.selected[data-group="budget"]')?.dataset.value||'';
+        document.getElementById('hiddenAge').value=document.querySelector('.option-card.selected[data-group="age"]')?.dataset.value||'';
+        document.getElementById('hiddenGender').value=document.querySelector('.option-card.selected[data-group="gender"]')?.dataset.value||'';
+        surveyForm.classList.add('hidden'); thankYouMessage.classList.remove('hidden'); window.scrollTo(0,0);
+    });
 });
 </script>
-
 </body>
 </html>
