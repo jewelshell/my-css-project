@@ -67,7 +67,7 @@ We are conducting a short survey to find out the trending colours, styles, and f
 
 <form id="surveyForm" action="https://formspree.io/f/xyznynyb" method="POST" class="space-y-12">
 
-<!-- Personal Details -->
+<!-- Section 1: Personal Details -->
 <fieldset class="bg-white/80 p-6 rounded-2xl shadow-sm">
 <legend class="text-2xl font-bold mb-6 text-center text-red-700 w-full">👤 Your Details</legend>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -80,7 +80,7 @@ We are conducting a short survey to find out the trending colours, styles, and f
 <input type="email" id="email" name="email" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm" placeholder="your.email@example.com">
 </div>
 <div>
-<label for="ageGroup" class="block text-sm font-medium text-gray-700 mb-1">Age Group 🎂</label>
+<label class="block text-sm font-medium text-gray-700 mb-1">🎂 Age Group</label>
 <div id="ageGroup" class="grid grid-cols-2 gap-2">
 <div class="option-card" data-group="age">Below 15 <span class="checkmark">✔️</span></div>
 <div class="option-card" data-group="age">15–20 <span class="checkmark">✔️</span></div>
@@ -95,7 +95,7 @@ We are conducting a short survey to find out the trending colours, styles, and f
 </div>
 
 <div>
-<label for="gender" class="block text-sm font-medium text-gray-700 mb-1">Gender 🚻</label>
+<label class="block text-sm font-medium text-gray-700 mb-1">🚻 Gender</label>
 <div id="gender" class="grid grid-cols-3 gap-2">
 <div class="option-card" data-group="gender">Male ♂️ <span class="checkmark">✔️</span></div>
 <div class="option-card" data-group="gender">Female ♀️ <span class="checkmark">✔️</span></div>
@@ -105,7 +105,7 @@ We are conducting a short survey to find out the trending colours, styles, and f
 </div>
 
 <div>
-<label for="occupation" class="block text-sm font-medium text-gray-700 mb-1">Occupation 💼</label>
+<label for="occupation" class="block text-sm font-medium text-gray-700 mb-1">💼 Occupation</label>
 <select id="occupation" name="occupation" class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-yellow-50 focus:outline-none sm:text-sm">
 <option>Student 🎓</option>
 <option>Working professional 💻</option>
@@ -117,30 +117,69 @@ We are conducting a short survey to find out the trending colours, styles, and f
 </div>
 
 <div>
-<label for="location" class="block text-sm font-medium text-gray-700 mb-1">Location 📍</label>
+<label for="location" class="block text-sm font-medium text-gray-700 mb-1">📍 Location (City/Area)</label>
 <input type="text" id="location" name="location" class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-green-50 focus:outline-none sm:text-sm" placeholder="City/Area 🏙️">
 </div>
 
 </div>
 </fieldset>
 
-<!-- Survey Questions -->
+<!-- Section 2: Style & Colour Preferences -->
 <fieldset>
-<legend class="text-2xl font-bold mb-6 text-center text-red-700">🎨 Colours & Styles</legend>
+<legend class="text-2xl font-bold mb-6 text-center text-red-700">🎨 Section 2: Style & Colour Preferences</legend>
+<p class="mb-2 font-medium">5. Which colour do you feel best represents this festive season? 🌈</p>
 <div id="colorOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
 <input type="hidden" name="colors" id="hiddenColors">
-<div id="styleOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4 mt-4"></div>
+
+<p class="mt-4 mb-2 font-medium">6. What type of outfits do you usually prefer during festivals? 👗</p>
+<div id="styleOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4"></div>
 <input type="hidden" name="style" id="hiddenStyle">
-<div id="fabricOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-4"></div>
-<input type="hidden" name="fabrics" id="hiddenFabrics">
-<div id="accessoryOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-4"></div>
-<input type="hidden" name="accessories" id="hiddenAccessories">
-<div id="vibeOptions" class="flex flex-wrap justify-center gap-4 mt-4"></div>
-<input type="hidden" name="vibe" id="hiddenVibe">
-<div id="inspirationOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-4"></div>
-<input type="hidden" name="inspirations" id="hiddenInspirations">
-<div id="budgetOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-4"></div>
+
+<p class="mt-4 mb-2 font-medium">7. For Indian wear, which colour do you prefer most? 🇮🇳</p>
+<div id="indianColors" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
+
+<p class="mt-4 mb-2 font-medium">8. For Western wear, which colour do you prefer most? 🌍</p>
+<div id="westernColors" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
+
+<p class="mt-4 mb-2 font-medium">9. For formal outfits, which colours appeal to you most? 🏢</p>
+<div id="formalColors" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
+
+<p class="mt-4 mb-2 font-medium">10. For casual wear, which colours appeal to you most? 👕</p>
+<div id="casualColors" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
+</fieldset>
+
+<!-- Section 3: Fashion & Shopping Habits -->
+<fieldset>
+<legend class="text-2xl font-bold mb-6 text-center text-red-700">🛍️ Section 3: Fashion & Shopping Habits</legend>
+<p class="mb-2 font-medium">11. What is your preferred price range for festive dresses? 💰</p>
+<div id="budgetOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
 <input type="hidden" name="budget" id="hiddenBudget">
+
+<p class="mt-4 mb-2 font-medium">12. Where do you usually shop for festive outfits? 🛒</p>
+<div id="shoppingOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4"></div>
+<input type="hidden" name="shopping" id="hiddenShopping">
+
+<p class="mt-4 mb-2 font-medium">13. Where do you get your fashion inspiration from? 📖</p>
+<div id="inspirationOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
+<input type="hidden" name="inspirations" id="hiddenInspirations">
+
+<p class="mt-4 mb-2 font-medium">14. Do you prefer wearing single colours or colour combinations during festivals? 🎨</p>
+<div id="colourPreference" class="grid grid-cols-2 gap-4">
+<div class="option-card" data-group="singleCombo">Single colours 🎯 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="singleCombo">Colour combinations 🌈 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="singleCombo">Depends on outfit 👗 <span class="checkmark">✔️</span></div>
+</div>
+<input type="hidden" name="singleCombo" id="hiddenSingleCombo">
+
+<p class="mt-4 mb-2 font-medium">15. If you chose colour combinations, which ones do you love? 🖌️ (Optional)</p>
+<textarea id="colorCombos" name="colorCombos" class="form-input block w-full p-3 border border-gray-300 rounded-md shadow-sm bg-pink-50" placeholder="Write your favourite combinations..."></textarea>
+</fieldset>
+
+<!-- Section 4: Trends & Opinion -->
+<fieldset>
+<legend class="text-2xl font-bold mb-6 text-center text-red-700">💡 Section 4: Trends & Opinion</legend>
+<p class="mb-2 font-medium">18. In one word, describe what colour means to you during the festival 🎊</p>
+<input type="text" id="colourMeaning" name="colourMeaning" class="form-input block w-full p-3 border border-gray-300 rounded-md shadow-sm bg-green-50" placeholder="Your word...">
 </fieldset>
 
 <div class="text-center pt-6">
@@ -151,95 +190,4 @@ Submit Your Choices 🚀
 
 </form>
 
-<div id="thankYouMessage" class="hidden text-center mt-12 p-8 bg-white/70 rounded-2xl shadow-lg">
-<h2 class="text-3xl font-bold text-red-800 mb-4">Thank You! 🎉</h2>
-<p class="text-gray-700 text-lg">Your fashion insights have been recorded. Wishing you a very happy Durga Puja 🪔!</p>
-</div>
-
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const surveyForm = document.getElementById('surveyForm');
-    const thankYouMessage = document.getElementById('thankYouMessage');
-
-    const surveyData = {
-        colors:[{name:'Ruby Red ❤️',hex:'#E0115F'},{name:'Royal Blue 💙',hex:'#4169E1'},{name:'Emerald Green 💚',hex:'#50C878'},{name:'Marigold Yellow 💛',hex:'#EAA221'},{name:'Sunset Orange 🧡',hex:'#FD5E53'},{name:'Fuchsia Pink 💖',hex:'#FF00FF'},{name:'Classic Ivory 🤍',hex:'#FFFFF0'},{name:'Earthy Tones 🌿',hex:'#A0522D'}],
-        styles:[{name:'Traditional Saree 👘',icon:'👘'},{name:'Modern Saree ✨',icon:'✨'},{name:'Kurta Set 🧥',icon:'🧥'},{name:'Lehenga Choli 💃',icon:'💃'},{name:'Fusion Wear 🚀',icon:'🚀'},{name:'Indo-Western Gown 👗',icon:'👗'}],
-        fabrics:['Silk','Cotton','Linen','Chiffon','Georgette','Organza','Velvet'],
-        accessories:[{name:'Statement Jewellery 💎',icon:'💎'},{name:'Minimalist Gold/Silver ✨',icon:'✨'},{name:'Oxidised Silver ⛓️',icon:'⛓️'},{name:'Terracotta Jewellery 🏺',icon:'🏺'},{name:'Handcrafted 🎨',icon:'🎨'},{name:'Floral 🌸',icon:'🌸'}],
-        vibes:['Minimalist & Chic','Bold & Glamorous','Timeless Traditional','Boho & Free-Spirited'],
-        inspirations:[{name:'Social Media 📱',icon:'📱'},{name:'Fashion Magazines 📖',icon:'📖'},{name:'Bollywood 🎬',icon:'🎬'},{name:'Local Boutiques 🛍️',icon:'🛍️'},{name:'Personal Style 👤',icon:'👤'}],
-        budgets:['Below ₹2000','₹2000 - ₹5000','₹5000 - ₹10000','Above ₹10000']
-    };
-
-    function createOption(item, group){
-        const div=document.createElement('div');
-        div.className='option-card';
-        div.dataset.value=item.name||item;
-        div.dataset.group=group;
-        const check=document.createElement('span'); check.className='checkmark'; check.textContent='✔️';
-        div.appendChild(check);
-        return div;
-    }
-
-    function renderOptions(containerId,data,group,renderer){
-        const container=document.getElementById(containerId);
-        data.forEach(item=>container.appendChild(renderer(item,group)));
-    }
-
-    renderOptions('colorOptions',surveyData.colors,'color',(item,group)=>{
-        const div=createOption(item,group);
-        div.style.backgroundColor=item.hex;
-        div.classList.add('aspect-square');
-        const span=document.createElement('span');
-        span.className='font-semibold text-center mix-blend-difference text-white text-sm sm:text-base';
-        span.textContent=item.name;
-        if(item.name.includes('Ivory')||item.name.includes('Yellow')){span.classList.remove('text-white','mix-blend-difference');span.classList.add('text-gray-800');}
-        div.appendChild(span);
-        return div;
-    });
-
-    const iconRenderer=(item,group)=>{
-        const div=createOption(item,group);
-        div.classList.add('space-y-2','h-full');
-        const icon=document.createElement('span'); icon.textContent=item.icon; icon.className='text-3xl sm:text-4xl md:text-5xl';
-        const text=document.createElement('span'); text.textContent=item.name; text.className='font-semibold text-gray-700 text-sm sm:text-base';
-        div.appendChild(icon); div.appendChild(text);
-        return div;
-    };
-
-    const textRenderer=(item,group)=>{
-        const div=createOption(item,group); div.textContent=item; return div;
-    };
-
-    renderOptions('styleOptions',surveyData.styles,'style',iconRenderer);
-    renderOptions('fabricOptions',surveyData.fabrics,'fabric',textRenderer);
-    renderOptions('accessoryOptions',surveyData.accessories,'accessory',iconRenderer);
-    renderOptions('vibeOptions',surveyData.vibes,'vibe',textRenderer);
-    renderOptions('inspirationOptions',surveyData.inspirations,'inspiration',iconRenderer);
-    renderOptions('budgetOptions',surveyData.budgets,'budget',textRenderer);
-
-    const multiGroups=['color','fabric','accessory','inspiration'];
-    document.querySelectorAll('.option-card').forEach(opt=>opt.addEventListener('click',()=>{
-        const group=opt.dataset.group;
-        if(!multiGroups.includes(group)){document.querySelectorAll(`.option-card[data-group="${group}"]`).forEach(el=>el.classList.remove('selected'));}
-        opt.classList.toggle('selected');
-    }));
-
-    surveyForm.addEventListener('submit',()=>{
-        document.getElementById('hiddenColors').value=Array.from(document.querySelectorAll('.option-card.selected[data-group="color"]')).map(e=>e.dataset.value).join(', ');
-        document.getElementById('hiddenStyle').value=document.querySelector('.option-card.selected[data-group="style"]')?.dataset.value||'';
-        document.getElementById('hiddenFabrics').value=Array.from(document.querySelectorAll('.option-card.selected[data-group="fabric"]')).map(e=>e.dataset.value).join(', ');
-        document.getElementById('hiddenAccessories').value=Array.from(document.querySelectorAll('.option-card.selected[data-group="accessory"]')).map(e=>e.dataset.value).join(', ');
-        document.getElementById('hiddenVibe').value=document.querySelector('.option-card.selected[data-group="vibe"]')?.dataset.value||'';
-        document.getElementById('hiddenInspirations').value=Array.from(document.querySelectorAll('.option-card.selected[data-group="inspiration"]')).map(e=>e.dataset.value).join(', ');
-        document.getElementById('hiddenBudget').value=document.querySelector('.option-card.selected[data-group="budget"]')?.dataset.value||'';
-        document.getElementById('hiddenAge').value=document.querySelector('.option-card.selected[data-group="age"]')?.dataset.value||'';
-        document.getElementById('hiddenGender').value=document.querySelector('.option-card.selected[data-group="gender"]')?.dataset.value||'';
-        surveyForm.classList.add('hidden'); thankYouMessage.classList.remove('hidden'); window.scrollTo(0,0);
-    });
-});
-</script>
-</body>
-</html>
+<div id="thankYouMessage" class="hidden text-center
