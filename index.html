@@ -1,282 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Festive Fashion Trends – Durga Puja 2025</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-<style>
-    body { font-family: 'Inter', sans-serif; }
-    h1, h2, h3, legend { font-family: 'Lora', serif; }
-    .selected {
-        outline: 4px solid #EF4444;
-        outline-offset: 2px;
-        transform: scale(1.05);
-        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Festive Fashion Trends – Durga Puja 2025</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
     .option-card {
-        transition: all 0.2s ease-in-out;
-        background-color: white;
-        cursor: pointer;
-        min-height: 100px; /* taller for mobile */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border-radius: 0.75rem;
-        padding: 1rem;
-        text-align: center;
+      transition: all 0.2s ease-in-out;
+      background-color: white;
+      cursor: pointer;
+      min-height: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      text-align: center;
     }
     .option-card span {
-        word-break: break-word;
-        font-size: 0.875rem;
+      word-break: break-word;
+      font-size: 0.875rem;
     }
-    @media (min-width: 640px) {
-        .option-card span { font-size: 1rem; }
-    }
-    @media (min-width: 768px) {
-        .option-card span { font-size: 1.05rem; }
-    }
-    .form-input {
-        transition: all 0.2s ease-in-out;
-    }
-    .form-input:focus {
-        border-color: #EF4444;
-        box-shadow: 0 0 0 2px #FCA5A5;
-    }
-</style>
+    .option-card.selected { background-color: #fee2e2; border: 2px solid #dc2626; }
+    @media (min-width: 640px) { .option-card span { font-size: 1rem; } }
+    @media (min-width: 768px) { .option-card span { font-size: 1.05rem; } }
+  </style>
 </head>
-<body class="bg-amber-50 text-gray-800">
-<div class="container mx-auto px-4 py-8 md:py-12 max-w-4xl">
+<body class="bg-gray-50">
+  <div class="container mx-auto px-4 py-8 max-w-4xl">
 
-<header class="text-center mb-10">
-<h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-red-800 mb-4">Festive Fashion Trends</h1>
-<h2 class="text-xl sm:text-2xl md:text-3xl text-red-600">Durga Puja 2025</h2>
-<p class="mt-4 text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
-We are conducting a short survey to find out the trending colours, styles, and fashion choices for this Durga Puja. Your response will help us understand this year’s festive vibe better. It will only take 2 minutes – thank you for your time!
-</p>
-</header>
+    <!-- Progress Bar -->
+    <div class="w-full bg-gray-200 rounded-full h-3 mb-8 sticky top-0 z-50">
+      <div id="progressBar" class="bg-red-600 h-3 rounded-full transition-all duration-500 ease-in-out" style="width: 0%;"></div>
+    </div>
+    <p id="progressText" class="text-center text-sm font-medium text-gray-700 mb-6">Step 1 of 2</p>
 
-<form id="surveyForm" action="https://formspree.io/f/xyznynyb" method="POST" class="space-y-12">
+    <!-- Header -->
+    <header class="text-center mb-10">
+      <h1 class="text-3xl sm:text-4xl font-bold text-red-600">Festive Fashion Trends – Durga Puja 2025</h1>
+      <p class="mt-3 text-gray-600">Help us understand this year’s festive vibe by sharing your choices. It only takes 2 minutes!</p>
+    </header>
 
-<!-- Personal Details -->
-<fieldset class="bg-white/80 p-6 rounded-2xl shadow-sm">
-<legend class="text-2xl font-bold mb-6 text-center text-red-700 w-full">Your Details</legend>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <form class="space-y-10">
+      
+      <!-- Section 1: Personal Details -->
+      <fieldset class="bg-white p-6 rounded-2xl shadow">
+        <legend class="text-xl font-semibold text-red-500 mb-4">Section 1: Your Details</legend>
+        
+        <!-- Age Group -->
+        <div class="mb-6">
+          <label class="block mb-2 font-medium">1. Age Group</label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="option-card" data-group="age">Below 15</div>
+            <div class="option-card" data-group="age">15–20</div>
+            <div class="option-card" data-group="age">21–25</div>
+            <div class="option-card" data-group="age">26–30</div>
+            <div class="option-card" data-group="age">31–40</div>
+            <div class="option-card" data-group="age">41–50</div>
+            <div class="option-card" data-group="age">51–60</div>
+            <div class="option-card" data-group="age">Above 60</div>
+          </div>
+        </div>
 
-<div>
-<label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-<input type="text" id="name" name="name" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm" placeholder="Your full name">
-</div>
+        <!-- Gender -->
+        <div class="mb-6">
+          <label class="block mb-2 font-medium">2. Gender</label>
+          <div class="grid grid-cols-3 gap-3">
+            <div class="option-card" data-group="gender">Male</div>
+            <div class="option-card" data-group="gender">Female</div>
+            <div class="option-card" data-group="gender">Other / Prefer not to say</div>
+          </div>
+        </div>
 
-<div>
-<label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-<input type="email" id="email" name="email" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm" placeholder="your.email@example.com">
-</div>
+        <!-- Occupation -->
+        <div class="mb-6">
+          <label class="block mb-2 font-medium">3. Occupation</label>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <div class="option-card" data-group="occupation">Student</div>
+            <div class="option-card" data-group="occupation">Working professional</div>
+            <div class="option-card" data-group="occupation">Homemaker</div>
+            <div class="option-card" data-group="occupation">Business owner</div>
+            <div class="option-card" data-group="occupation">Retired</div>
+            <div class="option-card" data-group="occupation">Others (please specify)</div>
+          </div>
+        </div>
 
-<div>
-<label for="dob" class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
-<input type="date" id="dob" name="dob" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm">
-<p id="ageDisplay" class="mt-1 text-gray-600 text-sm"></p>
-<input type="hidden" name="age" id="hiddenAge">
-</div>
+        <!-- Location -->
+        <div class="mb-6">
+          <label class="block mb-2 font-medium">4. Location (City/Area)</label>
+          <input type="text" placeholder="Enter your city/area" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-red-400">
+        </div>
+      </fieldset>
 
-<div>
-<label for="gender" class="block text-sm font-medium text-gray-700 mb-1">Gender</label>
-<select id="gender" name="gender" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm">
-<option value="" disabled selected>Select your gender</option>
-<option>Female</option>
-<option>Male</option>
-<option>Non-binary</option>
-<option>Prefer not to say</option>
-</select>
-</div>
+      <!-- Section 2: Style & Colour Preferences -->
+      <fieldset class="bg-white p-6 rounded-2xl shadow">
+        <legend class="text-xl font-semibold text-red-500 mb-4">Section 2: Style & Colour Preferences</legend>
 
-<div>
-<label for="occupation" class="block text-sm font-medium text-gray-700 mb-1">Occupation</label>
-<select id="occupation" name="occupation" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm">
-<option value="" disabled selected>Select your occupation</option>
-<option>Student</option>
-<option>Working Professional</option>
-<option>Designer</option>
-<option>Engineer</option>
-<option>Teacher</option>
-<option>Entrepreneur</option>
-<option>Homemaker</option>
-<option>Other</option>
-</select>
-</div>
+        <!-- Preferred Festive Colour -->
+        <div class="mb-6">
+          <label class="block mb-2 font-medium">5. Which colour best represents this festive season?</label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="option-card" data-group="season-colour">Red</div>
+            <div class="option-card" data-group="season-colour">Yellow</div>
+            <div class="option-card" data-group="season-colour">Blue</div>
+            <div class="option-card" data-group="season-colour">Green</div>
+            <div class="option-card" data-group="season-colour">White</div>
+            <div class="option-card" data-group="season-colour">Black</div>
+            <div class="option-card" data-group="season-colour">Pink</div>
+            <div class="option-card" data-group="season-colour">Purple</div>
+          </div>
+        </div>
 
-<div>
-<label for="location" class="block text-sm font-medium text-gray-700 mb-1">Location Preference</label>
-<select id="location" name="location" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm">
-<option value="" disabled selected>Select your location preference</option>
-<option>Kolkata</option>
-<option>Other Metro City</option>
-<option>Tier 2 City</option>
-<option>International</option>
-</select>
-</div>
+        <!-- Outfit Type -->
+        <div class="mb-6">
+          <label class="block mb-2 font-medium">6. What type of outfits do you usually prefer during festivals?</label>
+          <div class="grid grid-cols-3 gap-3">
+            <div class="option-card" data-group="outfit-type">Indian</div>
+            <div class="option-card" data-group="outfit-type">Western</div>
+            <div class="option-card" data-group="outfit-type">Fusion (Mix of both)</div>
+          </div>
+        </div>
 
-</div>
-</fieldset>
+        <!-- Indian wear colour -->
+        <div class="mb-6">
+          <label class="block mb-2 font-medium">7. For Indian wear, which colour do you prefer most?</label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="option-card" data-group="indian-colour">Red</div>
+            <div class="option-card" data-group="indian-colour">Yellow</div>
+            <div class="option-card" data-group="indian-colour">Blue</div>
+            <div class="option-card" data-group="indian-colour">Green</div>
+            <div class="option-card" data-group="indian-colour">Pink</div>
+            <div class="option-card" data-group="indian-colour">Purple</div>
+            <div class="option-card" data-group="indian-colour">White</div>
+            <div class="option-card" data-group="indian-colour">Black</div>
+          </div>
+        </div>
 
-<!-- Survey Questions -->
-<fieldset>
-<legend class="text-2xl font-bold mb-6 text-center text-red-700">Which colours will dominate your wardrobe this Puja?</legend>
-<div id="colorOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
-<input type="hidden" name="colors" id="hiddenColors">
-</fieldset>
+        <!-- Western wear colour -->
+        <div class="mb-6">
+          <label class="block mb-2 font-medium">8. For Western wear, which colour do you prefer most?</label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="option-card" data-group="western-colour">Red</div>
+            <div class="option-card" data-group="western-colour">Yellow</div>
+            <div class="option-card" data-group="western-colour">Blue</div>
+            <div class="option-card" data-group="western-colour">Green</div>
+            <div class="option-card" data-group="western-colour">White</div>
+            <div class="option-card" data-group="western-colour">Black</div>
+            <div class="option-card" data-group="western-colour">Pink</div>
+            <div class="option-card" data-group="western-colour">Purple</div>
+          </div>
+        </div>
 
-<fieldset>
-<legend class="text-2xl font-bold mb-6 text-center text-red-700">What's your go-to festive style?</legend>
-<div id="styleOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4"></div>
-<input type="hidden" name="style" id="hiddenStyle">
-</fieldset>
+        <!-- Formal outfit colours -->
+        <div class="mb-6">
+          <label class="block mb-2 font-medium">9. For formal outfits, which colours appeal to you most? (Choose multiple)</label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="option-card" data-group="formal-colour">Black</div>
+            <div class="option-card" data-group="formal-colour">White</div>
+            <div class="option-card" data-group="formal-colour">Blue</div>
+            <div class="option-card" data-group="formal-colour">Gray</div>
+            <div class="option-card" data-group="formal-colour">Brown</div>
+            <div class="option-card" data-group="formal-colour">Beige</div>
+          </div>
+        </div>
 
-<fieldset>
-<legend class="text-2xl font-bold mb-6 text-center text-red-700">Which fabrics are you leaning towards?</legend>
-<div id="fabricOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
-<input type="hidden" name="fabrics" id="hiddenFabrics">
-</fieldset>
+        <!-- Casual outfit colours -->
+        <div class="mb-6">
+          <label class="block mb-2 font-medium">10. For casual wear, which colours appeal to you most? (Choose multiple)</label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="option-card" data-group="casual-colour">Red</div>
+            <div class="option-card" data-group="casual-colour">Yellow</div>
+            <div class="option-card" data-group="casual-colour">Blue</div>
+            <div class="option-card" data-group="casual-colour">Green</div>
+            <div class="option-card" data-group="casual-colour">Black</div>
+            <div class="option-card" data-group="casual-colour">White</div>
+            <div class="option-card" data-group="casual-colour">Pink</div>
+            <div class="option-card" data-group="casual-colour">Purple</div>
+          </div>
+        </div>
+      </fieldset>
 
-<fieldset>
-<legend class="text-2xl font-bold mb-6 text-center text-red-700">What kind of accessories will you be sporting?</legend>
-<div id="accessoryOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
-<input type="hidden" name="accessories" id="hiddenAccessories">
-</fieldset>
+      <div class="text-center">
+        <button type="submit" class="bg-red-600 text-white px-6 py-3 rounded-xl shadow hover:bg-red-700 transition">Submit</button>
+      </div>
+    </form>
+  </div>
 
-<fieldset>
-<legend class="text-2xl font-bold mb-6 text-center text-red-700">What's the overall vibe you're aiming for?</legend>
-<div id="vibeOptions" class="flex flex-wrap justify-center gap-4"></div>
-<input type="hidden" name="vibe" id="hiddenVibe">
-</fieldset>
-
-<fieldset>
-<legend class="text-2xl font-bold mb-6 text-center text-red-700">Where do you get your fashion inspiration from?</legend>
-<div id="inspirationOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
-<input type="hidden" name="inspirations" id="hiddenInspirations">
-</fieldset>
-
-<fieldset>
-<legend class="text-2xl font-bold mb-6 text-center text-red-700">What is your budget for Puja shopping (per outfit)?</legend>
-<div id="budgetOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
-<input type="hidden" name="budget" id="hiddenBudget">
-</fieldset>
-
-<div class="text-center pt-6">
-<button type="submit" class="bg-red-600 text-white font-bold py-3 px-10 rounded-full hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-300 transition-all duration-300 transform hover:scale-105">
-Submit Your Choices
-</button>
-</div>
-</form>
-
-<!-- Thank You Message -->
-<div id="thankYouMessage" class="hidden text-center mt-12 p-8 bg-white/70 rounded-2xl shadow-lg">
-<h2 class="text-3xl font-bold text-red-800 mb-4">Thank You!</h2>
-<p class="text-gray-700 text-lg">Your fashion insights have been recorded. Wishing you a very happy Durga Puja!</p>
-</div>
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const surveyForm = document.getElementById('surveyForm');
-    const thankYouMessage = document.getElementById('thankYouMessage');
-
-    // Age calculation
-    const dobInput = document.getElementById('dob');
-    const ageDisplay = document.getElementById('ageDisplay');
-    dobInput.addEventListener('change', () => {
-        const dob = new Date(dobInput.value);
-        if (!dob || isNaN(dob)) {
-            ageDisplay.textContent = '';
-            document.getElementById('hiddenAge').value = '';
-            return;
+  <script>
+    // option card select toggle
+    document.querySelectorAll('.option-card').forEach(card => {
+      card.addEventListener('click', () => {
+        let group = card.dataset.group;
+        let multiple = (group.includes("colour")); // allow multi-select for colour questions
+        if (!multiple) {
+          document.querySelectorAll('.option-card[data-group="'+group+'"]').forEach(c => c.classList.remove('selected'));
         }
-        const today = new Date();
-        let age = today.getFullYear() - dob.getFullYear();
-        const m = today.getMonth() - dob.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) age--;
-        ageDisplay.textContent = `Your age: ${age} years`;
-        document.getElementById('hiddenAge').value = age;
+        card.classList.toggle('selected');
+      });
     });
 
-    const surveyData = {
-        colors:[{name:'Ruby Red',hex:'#E0115F'},{name:'Royal Blue',hex:'#4169E1'},{name:'Emerald Green',hex:'#50C878'},{name:'Marigold Yellow',hex:'#EAA221'},{name:'Sunset Orange',hex:'#FD5E53'},{name:'Fuchsia Pink',hex:'#FF00FF'},{name:'Classic Ivory',hex:'#FFFFF0'},{name:'Earthy Tones',hex:'#A0522D'}],
-        styles:[{name:'Traditional Saree',icon:'👘'},{name:'Modern Saree',icon:'✨'},{name:'Kurta Set',icon:'🧥'},{name:'Lehenga Choli',icon:'💃'},{name:'Fusion Wear',icon:'🚀'},{name:'Indo-Western Gown',icon:'👗'}],
-        fabrics:['Silk','Cotton','Linen','Chiffon','Georgette','Organza','Velvet'],
-        accessories:[{name:'Statement Jewellery',icon:'💎'},{name:'Minimalist Gold/Silver',icon:'✨'},{name:'Oxidised Silver',icon:'⛓️'},{name:'Terracotta Jewellery',icon:'🏺'},{name:'Handcrafted',icon:'🎨'},{name:'Floral',icon:'🌸'}],
-        vibes:['Minimalist & Chic','Bold & Glamorous','Timeless Traditional','Boho & Free-Spirited'],
-        inspirations:[{name:'Social Media',icon:'📱'},{name:'Fashion Magazines',icon:'📖'},{name:'Bollywood',icon:'🎬'},{name:'Local Boutiques',icon:'🛍️'},{name:'Personal Style',icon:'👤'}],
-        budgets:['Below ₹2000','₹2000 - ₹5000','₹5000 - ₹10000','Above ₹10000']
-    };
+    // Progress bar script
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll("fieldset");
+      const progressBar = document.getElementById("progressBar");
+      const progressText = document.getElementById("progressText");
+      const totalSteps = sections.length;
 
-    function createOption(item, group){
-        const div=document.createElement('div');
-        div.className='option-card';
-        div.dataset.value=item.name||item;
-        div.dataset.group=group;
-        return div;
-    }
-
-    function renderOptions(containerId,data,group,renderer){
-        const container=document.getElementById(containerId);
-        data.forEach(item=>container.appendChild(renderer(item,group)));
-    }
-
-    renderOptions('colorOptions',surveyData.colors,'color',(item,group)=>{
-        const div=createOption(item,group);
-        div.style.backgroundColor=item.hex;
-        div.classList.add('aspect-square');
-        const span=document.createElement('span');
-        span.className='font-semibold text-center mix-blend-difference text-white text-sm sm:text-base';
-        span.textContent=item.name;
-        if(item.name==='Classic Ivory'||item.name==='Marigold Yellow'){span.classList.remove('text-white','mix-blend-difference');span.classList.add('text-gray-800');}
-        div.appendChild(span);
-        return div;
+      function updateProgress() {
+        let scrollPosition = window.scrollY + window.innerHeight / 2;
+        let currentStep = 1;
+        sections.forEach((section, index) => {
+          if (scrollPosition >= section.offsetTop) {
+            currentStep = index + 1;
+          }
+        });
+        let progressPercent = (currentStep / totalSteps) * 100;
+        progressBar.style.width = progressPercent + "%";
+        progressText.textContent = `Step ${currentStep} of ${totalSteps}`;
+      }
+      updateProgress();
+      window.addEventListener("scroll", updateProgress);
     });
-
-    const iconRenderer=(item,group)=>{
-        const div=createOption(item,group);
-        div.classList.add('space-y-2','h-full','p-4','rounded-xl');
-        const icon=document.createElement('span'); icon.textContent=item.icon; icon.className='text-4xl sm:text-5xl md:text-6xl';
-        const text=document.createElement('span'); text.textContent=item.name; text.className='font-semibold text-gray-700 text-sm sm:text-base md:text-lg';
-        div.appendChild(icon); div.appendChild(text);
-        return div;
-    };
-
-    const textRenderer=(item,group)=>{
-        const div=createOption(item,group); div.classList.add('p-4','rounded-xl','text-center'); div.textContent=item; return div;
-    };
-
-    renderOptions('styleOptions',surveyData.styles,'style',iconRenderer);
-    renderOptions('fabricOptions',surveyData.fabrics,'fabric',textRenderer);
-    renderOptions('accessoryOptions',surveyData.accessories,'accessory',iconRenderer);
-    renderOptions('vibeOptions',surveyData.vibes,'vibe',textRenderer);
-    renderOptions('inspirationOptions',surveyData.inspirations,'inspiration',iconRenderer);
-    renderOptions('budgetOptions',surveyData.budgets,'budget',textRenderer);
-
-    const multiGroups=['color','fabric','accessory','inspiration'];
-    document.querySelectorAll('.option-card').forEach(opt=>opt.addEventListener('click',()=>{
-        const group=opt.dataset.group;
-        if(!multiGroups.includes(group)){document.querySelectorAll(`.option-card[data-group="${group}"]`).forEach(el=>el.classList.remove('selected'));}
-        opt.classList.toggle('selected');
-    }));
-
-    surveyForm.addEventListener('submit',()=>{
-        document.getElementById('hiddenColors').value=Array.from(document.querySelectorAll('.option-card.selected[data-group="color"]')).map(e=>e.dataset.value).join(', ');
-        document.getElementById('hiddenStyle').value=document.querySelector('.option-card.selected[data-group="style"]')?.dataset.value||'';
-        document.getElementById('hiddenFabrics').value=Array.from(document.querySelectorAll('.option-card.selected[data-group="fabric"]')).map(e=>e.dataset.value).join(', ');
-        document.getElementById('hiddenAccessories').value=Array.from(document.querySelectorAll('.option-card.selected[data-group="accessory"]')).map(e=>e.dataset.value).join(', ');
-        document.getElementById('hiddenVibe').value=document.querySelector('.option-card.selected[data-group="vibe"]')?.dataset.value||'';
-        document.getElementById('hiddenInspirations').value=Array.from(document.querySelectorAll('.option-card.selected[data-group="inspiration"]')).map(e=>e.dataset.value).join(', ');
-        document.getElementById('hiddenBudget').value=document.querySelector('.option-card.selected[data-group="budget"]')?.dataset.value||'';
-        surveyForm.classList.add('hidden'); thankYouMessage.classList.remove('hidden'); window.scrollTo(0,0);
-    });
-});
-</script>
+  </script>
 </body>
 </html>
