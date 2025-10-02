@@ -5,16 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Festive Fashion Trends – Durga Puja 2025</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Poppins', sans-serif; }
+    body { font-family: 'Poppins', sans-serif; background: linear-gradient(to bottom, #fff7f7, #fff); }
     .option-card {
       transition: all 0.2s ease-in-out;
       background-color: white;
       cursor: pointer;
-      min-height: 100px;
+      min-height: 110px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -22,172 +20,179 @@
       border-radius: 0.75rem;
       padding: 1rem;
       text-align: center;
+      border: 2px solid transparent;
+    }
+    .option-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(220, 38, 38, 0.2);
     }
     .option-card span {
       word-break: break-word;
-      font-size: 0.875rem;
+      font-size: 0.95rem;
     }
-    .option-card.selected { background-color: #fee2e2; border: 2px solid #dc2626; }
-    @media (min-width: 640px) { .option-card span { font-size: 1rem; } }
-    @media (min-width: 768px) { .option-card span { font-size: 1.05rem; } }
+    .option-card.selected {
+      background: linear-gradient(135deg, #fee2e2, #fecaca);
+      border: 2px solid #dc2626;
+      box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+    }
   </style>
 </head>
-<body class="bg-gray-50">
+<body>
   <div class="container mx-auto px-4 py-8 max-w-4xl">
 
     <!-- Progress Bar -->
-    <div class="w-full bg-gray-200 rounded-full h-3 mb-8 sticky top-0 z-50">
-      <div id="progressBar" class="bg-red-600 h-3 rounded-full transition-all duration-500 ease-in-out" style="width: 0%;"></div>
+    <div class="w-full bg-gray-200 rounded-full h-3 mb-6 sticky top-0 z-50">
+      <div id="progressBar" class="bg-gradient-to-r from-pink-500 to-red-600 h-3 rounded-full transition-all duration-500 ease-in-out" style="width: 0%;"></div>
     </div>
-    <p id="progressText" class="text-center text-sm font-medium text-gray-700 mb-6">Step 1 of 2</p>
+    <p id="progressText" class="text-center text-sm font-medium text-gray-700 mb-6">🎯 Step 1 of 2</p>
 
     <!-- Header -->
     <header class="text-center mb-10">
-      <h1 class="text-3xl sm:text-4xl font-bold text-red-600">Festive Fashion Trends – Durga Puja 2025</h1>
-      <p class="mt-3 text-gray-600">Help us understand this year’s festive vibe by sharing your choices. It only takes 2 minutes!</p>
+      <h1 class="text-3xl sm:text-4xl font-bold text-red-600">🎉 Festive Fashion Trends – Durga Puja 2025 👗</h1>
+      <p class="mt-3 text-gray-700">✨ Share your style choices and help us discover the colours & vibes of this festive season! ✨</p>
     </header>
 
     <form class="space-y-10">
       
       <!-- Section 1: Personal Details -->
-      <fieldset class="bg-white p-6 rounded-2xl shadow">
-        <legend class="text-xl font-semibold text-red-500 mb-4">Section 1: Your Details</legend>
+      <fieldset class="bg-white p-6 rounded-2xl shadow-lg">
+        <legend class="text-xl font-semibold text-red-500 mb-4">👤 Section 1: Your Details</legend>
         
         <!-- Age Group -->
         <div class="mb-6">
-          <label class="block mb-2 font-medium">1. Age Group</label>
+          <label class="block mb-2 font-medium">1️⃣ Age Group</label>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div class="option-card" data-group="age">Below 15</div>
-            <div class="option-card" data-group="age">15–20</div>
-            <div class="option-card" data-group="age">21–25</div>
-            <div class="option-card" data-group="age">26–30</div>
-            <div class="option-card" data-group="age">31–40</div>
-            <div class="option-card" data-group="age">41–50</div>
-            <div class="option-card" data-group="age">51–60</div>
-            <div class="option-card" data-group="age">Above 60</div>
+            <div class="option-card" data-group="age">🧒 Below 15</div>
+            <div class="option-card" data-group="age">👦 15–20</div>
+            <div class="option-card" data-group="age">🧑 21–25</div>
+            <div class="option-card" data-group="age">👨 26–30</div>
+            <div class="option-card" data-group="age">👩 31–40</div>
+            <div class="option-card" data-group="age">🧓 41–50</div>
+            <div class="option-card" data-group="age">👴 51–60</div>
+            <div class="option-card" data-group="age">🌟 Above 60</div>
           </div>
         </div>
 
         <!-- Gender -->
         <div class="mb-6">
-          <label class="block mb-2 font-medium">2. Gender</label>
+          <label class="block mb-2 font-medium">2️⃣ Gender</label>
           <div class="grid grid-cols-3 gap-3">
-            <div class="option-card" data-group="gender">Male</div>
-            <div class="option-card" data-group="gender">Female</div>
-            <div class="option-card" data-group="gender">Other / Prefer not to say</div>
+            <div class="option-card" data-group="gender">♂️ Male</div>
+            <div class="option-card" data-group="gender">♀️ Female</div>
+            <div class="option-card" data-group="gender">⚧️ Other / Prefer not to say</div>
           </div>
         </div>
 
         <!-- Occupation -->
         <div class="mb-6">
-          <label class="block mb-2 font-medium">3. Occupation</label>
+          <label class="block mb-2 font-medium">3️⃣ Occupation</label>
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            <div class="option-card" data-group="occupation">Student</div>
-            <div class="option-card" data-group="occupation">Working professional</div>
-            <div class="option-card" data-group="occupation">Homemaker</div>
-            <div class="option-card" data-group="occupation">Business owner</div>
-            <div class="option-card" data-group="occupation">Retired</div>
-            <div class="option-card" data-group="occupation">Others (please specify)</div>
+            <div class="option-card" data-group="occupation">🎓 Student</div>
+            <div class="option-card" data-group="occupation">💼 Working professional</div>
+            <div class="option-card" data-group="occupation">🏡 Homemaker</div>
+            <div class="option-card" data-group="occupation">📊 Business owner</div>
+            <div class="option-card" data-group="occupation">🛋️ Retired</div>
+            <div class="option-card" data-group="occupation">✨ Others</div>
           </div>
         </div>
 
         <!-- Location -->
         <div class="mb-6">
-          <label class="block mb-2 font-medium">4. Location (City/Area)</label>
-          <input type="text" placeholder="Enter your city/area" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-red-400">
+          <label class="block mb-2 font-medium">4️⃣ Location (City/Area)</label>
+          <input type="text" placeholder="📍 Enter your city/area" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-red-400">
         </div>
       </fieldset>
 
       <!-- Section 2: Style & Colour Preferences -->
-      <fieldset class="bg-white p-6 rounded-2xl shadow">
-        <legend class="text-xl font-semibold text-red-500 mb-4">Section 2: Style & Colour Preferences</legend>
+      <fieldset class="bg-white p-6 rounded-2xl shadow-lg">
+        <legend class="text-xl font-semibold text-red-500 mb-4">🎨 Section 2: Style & Colour Preferences</legend>
 
         <!-- Preferred Festive Colour -->
         <div class="mb-6">
-          <label class="block mb-2 font-medium">5. Which colour best represents this festive season?</label>
+          <label class="block mb-2 font-medium">5️⃣ Which colour best represents this festive season?</label>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div class="option-card" data-group="season-colour">Red</div>
-            <div class="option-card" data-group="season-colour">Yellow</div>
-            <div class="option-card" data-group="season-colour">Blue</div>
-            <div class="option-card" data-group="season-colour">Green</div>
-            <div class="option-card" data-group="season-colour">White</div>
-            <div class="option-card" data-group="season-colour">Black</div>
-            <div class="option-card" data-group="season-colour">Pink</div>
-            <div class="option-card" data-group="season-colour">Purple</div>
+            <div class="option-card" data-group="season-colour">🔴 Red</div>
+            <div class="option-card" data-group="season-colour">🟡 Yellow</div>
+            <div class="option-card" data-group="season-colour">🔵 Blue</div>
+            <div class="option-card" data-group="season-colour">🟢 Green</div>
+            <div class="option-card" data-group="season-colour">⚪ White</div>
+            <div class="option-card" data-group="season-colour">⚫ Black</div>
+            <div class="option-card" data-group="season-colour">🌸 Pink</div>
+            <div class="option-card" data-group="season-colour">💜 Purple</div>
           </div>
         </div>
 
         <!-- Outfit Type -->
         <div class="mb-6">
-          <label class="block mb-2 font-medium">6. What type of outfits do you usually prefer during festivals?</label>
+          <label class="block mb-2 font-medium">6️⃣ What type of outfits do you usually prefer during festivals?</label>
           <div class="grid grid-cols-3 gap-3">
-            <div class="option-card" data-group="outfit-type">Indian</div>
-            <div class="option-card" data-group="outfit-type">Western</div>
-            <div class="option-card" data-group="outfit-type">Fusion (Mix of both)</div>
+            <div class="option-card" data-group="outfit-type">👘 Indian</div>
+            <div class="option-card" data-group="outfit-type">👗 Western</div>
+            <div class="option-card" data-group="outfit-type">🔀 Fusion</div>
           </div>
         </div>
 
         <!-- Indian wear colour -->
         <div class="mb-6">
-          <label class="block mb-2 font-medium">7. For Indian wear, which colour do you prefer most?</label>
+          <label class="block mb-2 font-medium">7️⃣ For Indian wear, which colour do you prefer most?</label>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div class="option-card" data-group="indian-colour">Red</div>
-            <div class="option-card" data-group="indian-colour">Yellow</div>
-            <div class="option-card" data-group="indian-colour">Blue</div>
-            <div class="option-card" data-group="indian-colour">Green</div>
-            <div class="option-card" data-group="indian-colour">Pink</div>
-            <div class="option-card" data-group="indian-colour">Purple</div>
-            <div class="option-card" data-group="indian-colour">White</div>
-            <div class="option-card" data-group="indian-colour">Black</div>
+            <div class="option-card" data-group="indian-colour">🔴 Red</div>
+            <div class="option-card" data-group="indian-colour">🟡 Yellow</div>
+            <div class="option-card" data-group="indian-colour">🔵 Blue</div>
+            <div class="option-card" data-group="indian-colour">🟢 Green</div>
+            <div class="option-card" data-group="indian-colour">🌸 Pink</div>
+            <div class="option-card" data-group="indian-colour">💜 Purple</div>
+            <div class="option-card" data-group="indian-colour">⚪ White</div>
+            <div class="option-card" data-group="indian-colour">⚫ Black</div>
           </div>
         </div>
 
         <!-- Western wear colour -->
         <div class="mb-6">
-          <label class="block mb-2 font-medium">8. For Western wear, which colour do you prefer most?</label>
+          <label class="block mb-2 font-medium">8️⃣ For Western wear, which colour do you prefer most?</label>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div class="option-card" data-group="western-colour">Red</div>
-            <div class="option-card" data-group="western-colour">Yellow</div>
-            <div class="option-card" data-group="western-colour">Blue</div>
-            <div class="option-card" data-group="western-colour">Green</div>
-            <div class="option-card" data-group="western-colour">White</div>
-            <div class="option-card" data-group="western-colour">Black</div>
-            <div class="option-card" data-group="western-colour">Pink</div>
-            <div class="option-card" data-group="western-colour">Purple</div>
+            <div class="option-card" data-group="western-colour">🔴 Red</div>
+            <div class="option-card" data-group="western-colour">🟡 Yellow</div>
+            <div class="option-card" data-group="western-colour">🔵 Blue</div>
+            <div class="option-card" data-group="western-colour">🟢 Green</div>
+            <div class="option-card" data-group="western-colour">⚪ White</div>
+            <div class="option-card" data-group="western-colour">⚫ Black</div>
+            <div class="option-card" data-group="western-colour">🌸 Pink</div>
+            <div class="option-card" data-group="western-colour">💜 Purple</div>
           </div>
         </div>
 
         <!-- Formal outfit colours -->
         <div class="mb-6">
-          <label class="block mb-2 font-medium">9. For formal outfits, which colours appeal to you most? (Choose multiple)</label>
+          <label class="block mb-2 font-medium">9️⃣ For formal outfits, which colours appeal to you most? (Choose multiple)</label>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div class="option-card" data-group="formal-colour">Black</div>
-            <div class="option-card" data-group="formal-colour">White</div>
-            <div class="option-card" data-group="formal-colour">Blue</div>
-            <div class="option-card" data-group="formal-colour">Gray</div>
-            <div class="option-card" data-group="formal-colour">Brown</div>
-            <div class="option-card" data-group="formal-colour">Beige</div>
+            <div class="option-card" data-group="formal-colour">⚫ Black</div>
+            <div class="option-card" data-group="formal-colour">⚪ White</div>
+            <div class="option-card" data-group="formal-colour">🔵 Blue</div>
+            <div class="option-card" data-group="formal-colour">🌫️ Gray</div>
+            <div class="option-card" data-group="formal-colour">🤎 Brown</div>
+            <div class="option-card" data-group="formal-colour">🤍 Beige</div>
           </div>
         </div>
 
         <!-- Casual outfit colours -->
         <div class="mb-6">
-          <label class="block mb-2 font-medium">10. For casual wear, which colours appeal to you most? (Choose multiple)</label>
+          <label class="block mb-2 font-medium">🔟 For casual wear, which colours appeal to you most? (Choose multiple)</label>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div class="option-card" data-group="casual-colour">Red</div>
-            <div class="option-card" data-group="casual-colour">Yellow</div>
-            <div class="option-card" data-group="casual-colour">Blue</div>
-            <div class="option-card" data-group="casual-colour">Green</div>
-            <div class="option-card" data-group="casual-colour">Black</div>
-            <div class="option-card" data-group="casual-colour">White</div>
-            <div class="option-card" data-group="casual-colour">Pink</div>
-            <div class="option-card" data-group="casual-colour">Purple</div>
+            <div class="option-card" data-group="casual-colour">🔴 Red</div>
+            <div class="option-card" data-group="casual-colour">🟡 Yellow</div>
+            <div class="option-card" data-group="casual-colour">🔵 Blue</div>
+            <div class="option-card" data-group="casual-colour">🟢 Green</div>
+            <div class="option-card" data-group="casual-colour">⚫ Black</div>
+            <div class="option-card" data-group="casual-colour">⚪ White</div>
+            <div class="option-card" data-group="casual-colour">🌸 Pink</div>
+            <div class="option-card" data-group="casual-colour">💜 Purple</div>
           </div>
         </div>
       </fieldset>
 
       <div class="text-center">
-        <button type="submit" class="bg-red-600 text-white px-6 py-3 rounded-xl shadow hover:bg-red-700 transition">Submit</button>
+        <button type="submit" class="bg-gradient-to-r from-red-500 to-pink-600 text-white px-8 py-3 rounded-xl shadow-lg hover:scale-105 transition">🚀 Submit</button>
       </div>
     </form>
   </div>
@@ -222,7 +227,7 @@
         });
         let progressPercent = (currentStep / totalSteps) * 100;
         progressBar.style.width = progressPercent + "%";
-        progressText.textContent = `Step ${currentStep} of ${totalSteps}`;
+        progressText.textContent = `🎯 Step ${currentStep} of ${totalSteps}`;
       }
       updateProgress();
       window.addEventListener("scroll", updateProgress);
