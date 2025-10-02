@@ -52,6 +52,7 @@ h1, h2, h3, legend { font-family: 'Lora', serif; }
 .option-card.selected .checkmark { display: block; }
 .form-input { transition: all 0.2s ease-in-out; }
 .form-input:focus { border-color: #EF4444; box-shadow: 0 0 0 2px #FCA5A5; }
+textarea.form-input { resize: vertical; }
 </style>
 </head>
 <body class="bg-amber-50 text-gray-800">
@@ -67,23 +68,38 @@ We are conducting a short survey to find out the trending colours, styles, and f
 
 <form id="surveyForm" method="POST" class="space-y-12">
 
-<!-- Section 1: Basic Information -->
+<!-- Section 0: Name & Email -->
 <fieldset class="bg-white/80 p-6 rounded-2xl shadow-sm">
-<legend class="text-2xl font-bold mb-6 text-center text-red-700 w-full">👤 Section 1: Basic Information</legend>
+<legend class="text-2xl font-bold mb-6 text-center text-red-700 w-full">👤 Your Details</legend>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div>
+<label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name ✍️</label>
+<input type="text" id="name" name="name" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm" placeholder="Your full name">
+</div>
+<div>
+<label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email 📧</label>
+<input type="email" id="email" name="email" required class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm" placeholder="your.email@example.com">
+</div>
+</div>
+</fieldset>
+
+<!-- Section 1: Basic Info -->
+<fieldset class="bg-white/80 p-6 rounded-2xl shadow-sm">
+<legend class="text-2xl font-bold mb-6 text-center text-red-700 w-full">🎯 Section 1: Basic Information</legend>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
 
 <!-- Age Group -->
 <div>
 <label class="block text-sm font-medium text-gray-700 mb-1">🎂 Age Group</label>
 <div id="ageGroup" class="grid grid-cols-2 gap-2">
-<div class="option-card" data-group="age">Below 15 <span class="checkmark">✔️</span></div>
-<div class="option-card" data-group="age">15–20 <span class="checkmark">✔️</span></div>
-<div class="option-card" data-group="age">21–25 <span class="checkmark">✔️</span></div>
-<div class="option-card" data-group="age">26–30 <span class="checkmark">✔️</span></div>
-<div class="option-card" data-group="age">31–40 <span class="checkmark">✔️</span></div>
-<div class="option-card" data-group="age">41–50 <span class="checkmark">✔️</span></div>
-<div class="option-card" data-group="age">51–60 <span class="checkmark">✔️</span></div>
-<div class="option-card" data-group="age">Above 60 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="age" data-value="Below 15">Below 15 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="age" data-value="15–20">15–20 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="age" data-value="21–25">21–25 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="age" data-value="26–30">26–30 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="age" data-value="31–40">31–40 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="age" data-value="41–50">41–50 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="age" data-value="51–60">51–60 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="age" data-value="Above 60">Above 60 <span class="checkmark">✔️</span></div>
 </div>
 <input type="hidden" name="age" id="hiddenAge">
 </div>
@@ -92,9 +108,9 @@ We are conducting a short survey to find out the trending colours, styles, and f
 <div>
 <label class="block text-sm font-medium text-gray-700 mb-1">🚻 Gender</label>
 <div id="gender" class="grid grid-cols-3 gap-2">
-<div class="option-card" data-group="gender">Male ♂️ <span class="checkmark">✔️</span></div>
-<div class="option-card" data-group="gender">Female ♀️ <span class="checkmark">✔️</span></div>
-<div class="option-card" data-group="gender">Other / Prefer not to say 🌈 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="gender" data-value="Male">Male ♂️ <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="gender" data-value="Female">Female ♀️ <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="gender" data-value="Other / Prefer not to say">Other / Prefer not to say 🌈 <span class="checkmark">✔️</span></div>
 </div>
 <input type="hidden" name="gender" id="hiddenGender">
 </div>
@@ -103,12 +119,12 @@ We are conducting a short survey to find out the trending colours, styles, and f
 <div>
 <label for="occupation" class="block text-sm font-medium text-gray-700 mb-1">💼 Occupation</label>
 <select id="occupation" name="occupation" class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-yellow-50 focus:outline-none sm:text-sm">
-<option>Student 🎓</option>
-<option>Working professional 💻</option>
-<option>Homemaker 🏡</option>
-<option>Business owner 🏢</option>
-<option>Retired 🌅</option>
-<option>Others ✍️</option>
+<option value="Student">Student 🎓</option>
+<option value="Working professional">Working professional 💻</option>
+<option value="Homemaker">Homemaker 🏡</option>
+<option value="Business owner">Business owner 🏢</option>
+<option value="Retired">Retired 🌅</option>
+<option value="Others">Others ✍️</option>
 </select>
 </div>
 
@@ -117,7 +133,6 @@ We are conducting a short survey to find out the trending colours, styles, and f
 <label for="location" class="block text-sm font-medium text-gray-700 mb-1">📍 Location (City/Area)</label>
 <input type="text" id="location" name="location" class="form-input block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-green-50 focus:outline-none sm:text-sm" placeholder="City/Area 🏙️">
 </div>
-
 </div>
 </fieldset>
 
@@ -125,38 +140,49 @@ We are conducting a short survey to find out the trending colours, styles, and f
 <fieldset class="bg-white/80 p-6 rounded-2xl shadow-sm">
 <legend class="text-2xl font-bold mb-6 text-center text-red-700 w-full">🎨 Section 2: Style & Colour Preferences</legend>
 
-<!-- Colours, Outfits, Indian/Western/ Formal/ Casual - all cards here -->
-<!-- Example for one colour group -->
 <div>
-<label class="block mb-2 font-semibold text-gray-700">🌈 Favourite Colour this festive season</label>
-<div id="colorOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-<!-- Sample Colours -->
-<div class="option-card" data-group="color" data-value="Ruby Red" style="background-color:#E0115F; color:white;">Ruby Red 💖<span class="checkmark">✔️</span></div>
-<div class="option-card" data-group="color" data-value="Royal Blue" style="background-color:#4169E1; color:white;">Royal Blue 💙<span class="checkmark">✔️</span></div>
-<div class="option-card" data-group="color" data-value="Emerald Green" style="background-color:#50C878; color:white;">Emerald Green 💚<span class="checkmark">✔️</span></div>
-<div class="option-card" data-group="color" data-value="Marigold Yellow" style="background-color:#EAA221; color:black;">Marigold Yellow 🌟<span class="checkmark">✔️</span></div>
-<!-- Add all other colours as in previous code -->
-</div>
+<label class="block mb-2 font-semibold text-gray-700">🌈 Which colour do you feel best represents this festive season?</label>
+<div id="colorOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
 <input type="hidden" name="colors" id="hiddenColors">
 </div>
 
-<!-- Outfit Types -->
 <div>
-<label class="block mb-2 font-semibold text-gray-700">👗 Outfit Preference</label>
+<label class="block mb-2 font-semibold text-gray-700">👗 What type of outfits do you usually prefer during festivals?</label>
 <div id="styleOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4">
-<div class="option-card" data-group="style" data-value="Indian">Indian Saree/Outfit 🧵<span class="checkmark">✔️</span></div>
-<div class="option-card" data-group="style" data-value="Western">Western Outfits 👗<span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="style" data-value="Indian">Indian 🧵<span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="style" data-value="Western">Western 👗<span class="checkmark">✔️</span></div>
 <div class="option-card" data-group="style" data-value="Fusion">Fusion Mix 🔀<span class="checkmark">✔️</span></div>
 </div>
 <input type="hidden" name="style" id="hiddenStyle">
 </div>
 
-<!-- Continue adding Indian/Western/ Formal/ Casual Colour preferences same as above -->
-</fieldset>
+<!-- Sections 3 & 4: Fashion & Shopping Habits + Trends & Opinions -->
+<!-- All your remaining questions like price, shopping, inspirations, single/mix colours, trending colours, open-ended are included below -->
 
-<!-- Section 3 & 4 -->
-<!-- Add all previous sections: Fashion & Shopping Habits, Trends & Opinions -->
-<!-- Keep emojis for price range, inspiration, trending colours, brand colours etc. -->
+<!-- Example: Preferred Price Range -->
+<div>
+<label class="block font-semibold text-gray-700 mt-4">💰 Preferred Price Range for Festive Dresses</label>
+<div id="budgetOptions" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+<div class="option-card" data-group="budget" data-value="Below ₹1000">Below ₹1000 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="budget" data-value="₹1000–₹3000">₹1000–₹3000 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="budget" data-value="₹3000–₹6000">₹3000–₹6000 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="budget" data-value="₹6000–₹10,000">₹6000–₹10,000 <span class="checkmark">✔️</span></div>
+<div class="option-card" data-group="budget" data-value="Above ₹10,000">Above ₹10,000 <span class="checkmark">✔️</span></div>
+</div>
+<input type="hidden" name="budget" id="hiddenBudget">
+</div>
+
+<!-- Open-ended: Colour combinations -->
+<div>
+<label class="block font-semibold text-gray-700 mt-4">🎨 If you chose colour combinations, which ones do you love?</label>
+<textarea name="colorCombination" rows="3" class="form-input w-full" placeholder="Write your favourite colour combos here..."></textarea>
+</div>
+
+<!-- Short answer for colour meaning -->
+<div>
+<label class="block font-semibold text-gray-700 mt-4">🖌️ In one word describe what colour means to you during the festival</label>
+<input type="text" name="colourMeaning" class="form-input w-full" placeholder="Your word ✨">
+</div>
 
 <div class="text-center pt-6">
 <button type="submit" class="bg-red-600 text-white font-bold py-3 px-10 rounded-full hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-300 transition-all duration-300 transform hover:scale-105">
@@ -173,7 +199,7 @@ Submit Your Choices 🚀
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    const multiGroups=['color','fabric','accessory','inspiration','casualColor','formalColor','trendingColor','brandColor'];
+    const multiGroups=['color','style','age','gender','budget'];
     document.querySelectorAll('.option-card').forEach(card=>{
         card.addEventListener('click',()=>{
             const group=card.dataset.group;
@@ -183,14 +209,19 @@ document.addEventListener('DOMContentLoaded', () => {
             } else { card.classList.toggle('selected'); }
         });
     });
+
     document.getElementById('surveyForm').addEventListener('submit', e=>{
         e.preventDefault();
+        document.getElementById('hiddenAge').value = document.querySelector('.option-card.selected[data-group="age"]')?.dataset.value || '';
+        document.getElementById('hiddenGender').value = document.querySelector('.option-card.selected[data-group="gender"]')?.dataset.value || '';
+        document.getElementById('hiddenColors').value = Array.from(document.querySelectorAll('.option-card.selected[data-group="color"]')).map(e=>e.dataset.value).join(', ');
+        document.getElementById('hiddenStyle').value = document.querySelector('.option-card.selected[data-group="style"]')?.dataset.value || '';
+        document.getElementById('hiddenBudget').value = document.querySelector('.option-card.selected[data-group="budget"]')?.dataset.value || '';
         document.getElementById('surveyForm').style.display='none';
         document.getElementById('thankYouMessage').classList.remove('hidden');
         window.scrollTo(0,0);
     });
 });
 </script>
-
 </body>
 </html>
